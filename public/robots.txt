@@ -1,0 +1,12 @@
+# robots.txt for Shortify Link
+# Block sensitive or admin pages, allow everything else
+
+User-agent: *
+Disallow: /url-creation-error
+
+
+# Allow all other pages
+Allow: /
+
+# Sitemap location
+Sitemap: http://localhost:3000/sitemap.xml
