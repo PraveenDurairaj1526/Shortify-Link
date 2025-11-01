@@ -11,7 +11,7 @@ const About = () => {
                         Simple and Fast URL Shortener Shortify Link lets you create short URLs in seconds from any website, blog, or social media platform like Instagram, Facebook, YouTube, Twitter, LinkedIn, WhatsApp, and TikTok. Just paste your long URL, click the “Shorten URL” button, and instantly get a clean, compact short link.
                     </p>
                     <p>
-                        Easily copy and share your short links anywhere—on websites, social media, messaging apps, or emails. Shortify Link is a free URL shortener designed to make sharing links faster, safer, and hassle-free.
+                        Easily copy and share your short links anywhere on websites, social media, messaging apps, or emails. Shortify Link is a free URL shortener designed to make sharing links faster, safer, and hassle-free.
                     </p>
                 </div>
                 <LinkIcon className=' hidden lg:block w-[633px] h-[520px] absolute right-[-100px] top-[-107px] text-[#2563eb] -z-[1]' />
