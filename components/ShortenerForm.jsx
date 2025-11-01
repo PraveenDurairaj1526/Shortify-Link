@@ -42,7 +42,7 @@ const ShortenerForm = () => {
     };
 
     return (
-        <div className="bg-[url(../public/images/banner-background.webp)] min-h-[600px] bg-cover">
+        <div className="bg-[url(/images/banner-background.webp)] min-h-[600px] bg-cover">
             <div className="p-[60px_15px] sm:p-[100px_15px] grid justify-center items-center">
                 <h1 className="text-[32px] sm:text-[46px] font-semibold text-center mb-3">
                     Free URL Shortener to Simplify Your Links
