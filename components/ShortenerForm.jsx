@@ -9,8 +9,8 @@ import { ArrowIcon, LinkIcon } from '@/SvgIcons/getSvgIcons';
 
 const ShortenerForm = () => {
     const [url, setUrl] = useState("");
-    const [originalUrl, setOriginalUrl] = useState("https://tailwindcss.com/docs/color");
-    const [shortUrl, setShortUrl] = useState("https://tailwindcss.com/docs/color");
+    const [originalUrl, setOriginalUrl] = useState("");
+    const [shortUrl, setShortUrl] = useState("");
     const [copied, setCopied] = useState(false);
     const router = useRouter();
 
@@ -42,7 +42,7 @@ const ShortenerForm = () => {
     };
 
     return (
-        <div className="bg-[url(/images/banner-background.webp)] min-h-[600px] bg-cover">
+        <div className="bg-[url(/banner-background.webp)] min-h-[600px] bg-cover">
             <div className="p-[60px_15px] sm:p-[100px_15px] grid justify-center items-center">
                 <h1 className="text-[32px] sm:text-[46px] font-semibold text-center mb-3">
                     Free URL Shortener to Simplify Your Links

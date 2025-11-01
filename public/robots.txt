@@ -9,4 +9,4 @@ Disallow: /url-creation-error
 Allow: /
 
 # Sitemap location
-Sitemap: http://localhost:3000/sitemap.xml
+Sitemap: https://www.shortifylink.in/sitemap.xml

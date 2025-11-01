@@ -4,15 +4,14 @@ export default function Footer() {
             <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
                 {/* Brand Logo */}
                 <div className="flex items-center space-x-2">
-                   
-                    <span className="text-xl font-semibold ">Shortify Link</span>
+                    <a className="text-xl font-semibold" href="/"> <span className="text-[#3e8be8]">Shortify</span> Link</a>
                 </div>
 
                 {/* Links */}
                 <div className="flex flex-wrap items-center justify-center space-x-6 text-sm">
                     <a href="/terms-of-service" className="hover:text-white transition">Terms of Service</a>
                     <a href="/privacy-policy" className="hover:text-white transition">Privacy Policy</a>
-                    <a href="/contact" className="hover:text-white transition">Contact</a>
+                    <a href="mailto:praveendurairaj.in">Contact</a>
                 </div>
 
                 {/* Copyright */}

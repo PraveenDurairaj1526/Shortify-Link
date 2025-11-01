@@ -1,6 +1,5 @@
 
 import About from "@/components/About";
-import Footer from "@/components/Footer";
 import ShortenerForm from "@/components/ShortenerForm";
 import WhyChoose from "@/components/WhyChoose";
 
@@ -12,7 +11,7 @@ export const metadata = {
   openGraph: {
     title: "Shortify Link | Free URL Shortener",
     description: "Shorten long URLs instantly with Shortify Link",
-    url: "https://yourdomain.com",
+    url: "https://www.shortifylink.in/",
     siteName: "Shortify Link",
   },
 };
