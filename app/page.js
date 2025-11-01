@@ -13,6 +13,7 @@ export const metadata = {
     description: "Shorten long URLs instantly with Shortify Link",
     url: "https://www.shortifylink.in/",
     siteName: "Shortify Link",
+    image: "/shortifyUrl.png", 
   },
 };
 export const viewport = {
