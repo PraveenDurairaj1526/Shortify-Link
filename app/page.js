@@ -4,8 +4,8 @@ import ShortenerForm from "@/components/ShortenerForm";
 import WhyChoose from "@/components/WhyChoose";
 
 export const metadata = {
-  title: "Shortify Link | Free URL Shortener to Create and Share Short Links",
-  description: "Shorten long URLs instantly with Shortify Link a fast and free URL shortener. Create clean, easy-to-share short links for your website, social media, and marketing campaigns.",
+  title: "Free URL Shortener | Shortify Link – Create, Shorten & Share Short URL",
+  description: "Shortify Link is a free and fast URL shortener to shorten long links instantly. Generate simple, clean short URL for websites, social media, and marketing use. Share short links easily and boost your online visibility.",
   keywords: "url shortener, free url shortener, short url, short link",
   authors: [{ name: "Shortify Link" }],
   openGraph: {
@@ -16,8 +16,6 @@ export const metadata = {
     images: [
       {
         url: "https://www.shortifylink.in/shortifyUrl.png",
-        width: 1200,
-        height: 630,
         alt: "Shortify Link - Free URL Shortener",
       },
     ],
