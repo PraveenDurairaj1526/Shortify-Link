@@ -13,7 +13,14 @@ export const metadata = {
     description: "Shorten long URLs instantly with Shortify Link",
     url: "https://www.shortifylink.in/",
     siteName: "Shortify Link",
-    image: "https://www.shortifylink.in/shortifyUrl.png", 
+    images: [
+      {
+        url: "https://www.shortifylink.in/shortifyUrl.png",
+        width: 1200,
+        height: 630,
+        alt: "Shortify Link - Free URL Shortener",
+      },
+    ],
   },
 };
 export const viewport = {
@@ -24,10 +31,10 @@ export const viewport = {
 export default function Home() {
 
   return (
-      <main>
-        <ShortenerForm />
-        <About/>
-        <WhyChoose />
-      </main>
+    <main>
+      <ShortenerForm />
+      <About />
+      <WhyChoose />
+    </main>
   );
 }

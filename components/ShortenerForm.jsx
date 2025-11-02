@@ -1,34 +1,42 @@
 "use client"
-
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { db } from '@/lib/firebase.config';
 import { collection, addDoc } from "firebase/firestore";
 import { v4 as uuid4 } from "uuid";
-import { ArrowIcon, LinkIcon } from '@/SvgIcons/getSvgIcons';
+import { ArrowIcon, LinkIcon, Loader } from '@/SvgIcons/getSvgIcons';
 
 const ShortenerForm = () => {
     const [url, setUrl] = useState("");
     const [originalUrl, setOriginalUrl] = useState("");
     const [shortUrl, setShortUrl] = useState("");
     const [copied, setCopied] = useState(false);
+    const [loading, setLoading] = useState(false)
     const router = useRouter();
+    const [inputError, setInputError] = useState('')
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!url) return;
+
+        if (!url) {
+            setInputError('Invalid URL. Please enter a proper URL starting with http:// or https://.')
+            return
+        };
 
         const trimUrl = url.trim();
 
         if (trimUrl && trimUrl.startsWith('https')) {
+            setLoading(true)
             const id = uuid4().slice(0, 5);
             await addDoc(collection(db, "manage_url"), {
                 id,
                 originalUrl: trimUrl,
             });
+            setLoading(false)
             setOriginalUrl(trimUrl);
             setShortUrl(`${window.location.origin}/${id}`);
             setUrl("");
+            setInputError('')
         } else {
             router.push("/url-creation-error");
         }
@@ -58,12 +66,14 @@ const ShortenerForm = () => {
                     />
                     <button
                         onClick={handleSubmit}
-                        className="bg-gradient-to-r from-blue-500 to-indigo-500 shrink-0 text-white font-semibold p-[10px] sm:p-[12px_24px] rounded-full hover:from-indigo-500 hover:to-blue-500 transition-all duration-300"
+                        className="bg-[#3e8be8] gap-2 flex items-center justify-center shrink-0 text-white font-medium p-[10px] sm:p-[12px_24px] rounded-full transition-all duration-300"
                     >
                         <span className={'hidden sm:block'}>Shorten URL</span>
+                        {loading && <Loader loaderStyle='border-white ' />}
                         <ArrowIcon className={'block sm:hidden'} />
                     </button>
                 </div>
+                {inputError && <p className='text-red-600 text-base sm:max-w-[80%] mx-auto mt-1'>{inputError}</p>}
 
                 {shortUrl &&
                     <div className="border break-all border-[#2d7be3] bg-white p-3 min-h-[100px] shadow-[1px_4px_16px_7px_#dcebfd] my-[20px] mx-auto w-full sm:max-w-[70%] rounded-[12px]">

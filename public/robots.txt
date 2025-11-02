@@ -1,12 +1,13 @@
-# robots.txt for Shortify Link
-# Block sensitive or admin pages, allow everything else
+# *
+User-agent: *
+Allow: /
 
+# *
 User-agent: *
 Disallow: /url-creation-error
 
+# Host
+Host: https://www.shortifylink.in
 
-# Allow all other pages
-Allow: /
-
-# Sitemap location
+# Sitemaps
 Sitemap: https://www.shortifylink.in/sitemap.xml

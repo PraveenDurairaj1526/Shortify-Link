@@ -3,7 +3,7 @@ import React from 'react'
 
 const About = () => {
     return (
-        <section className='max-w-[1180px] mx-auto px-4 mt-10 sm:mt-20'>
+        <section className='max-w-[1180px] mx-auto px-4 mt-10 sm:mt-20' id='about'>
             <h2 className='text-[28px] sm:text-[36px] font-semibold mb-5'>About Our Url shortener</h2>
             <div className='p-[30px] sm:p-[60px_40px] bg-[#d2e5ff8c] rounded-[20px] sm:rounded-[30px] mb-[10px] grid lg:grid-cols-[auto_400px] relative overflow-hidden isolate'>
                 <div className='text-[16px] sm:text-xl'>

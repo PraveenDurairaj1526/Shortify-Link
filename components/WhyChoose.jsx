@@ -32,8 +32,8 @@ const features = [
 
 const WhyChoose = () => {
     return (
-        <section className='max-w-[1180px] mx-auto px-4 mt-10 sm:mt-20'>
-            <h2 className='text-[28px] sm:text-[36px] font-semibold mb-9 text-center'>WhyChoose our url shortener</h2>
+        <section className='max-w-[1180px] mx-auto px-4 mt-10 sm:mt-20' id='service'>
+            <h2 className='text-[28px] sm:text-[36px] font-semibold mb-9 text-center'>Why Choose our url shortener</h2>
             <div className="grid lg:grid-cols-2 gap-6 w-full justify-center">
                 {
                     features?.map((item, key) => {
