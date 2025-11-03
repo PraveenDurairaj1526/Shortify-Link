@@ -10,16 +10,17 @@ const inter = Inter({ subsets: ["latin"] });
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-       <head>
+      <head>
+        <link rel="icon" href="/faviconListPage.ico" type="image/x-icon"></link>
         <link rel="icon" type="image/png" sizes="512x512" href="/faviconChrom.png" />
-          <link rel="icon" type="image/png" sizes="192x192" href="/faviconmobile.png" />
-         <link rel="icon" type="image/png" sizes="32x32" href="/faviconxl.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />      
+        <link rel="icon" type="image/png" sizes="192x192" href="/faviconmobile.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/faviconxl.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
       </head>
       <body className={inter.className}>
-        <Header/>
+        <Header />
         {children}
-         <Analytics />
+        <Analytics />
         <Footer />
       </body>
     </html>
