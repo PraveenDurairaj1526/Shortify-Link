@@ -38,7 +38,8 @@ const ShortenerForm = () => {
             setUrl("");
             setInputError('')
         } else {
-            router.push("/url-creation-error");
+            // router.push("/url-creation-error");
+            setInputError('Invalid URL. Please enter a proper URL starting with http:// or https://.')
         }
     }
 
