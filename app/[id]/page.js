@@ -8,7 +8,6 @@ export default async function RedirectPage({ params }) {
 
     if (!snapshot.empty) {
         const data = snapshot.docs[0].data();
-        console.log('data',data)
         redirect(data.originalUrl);
     } else {
         return (
