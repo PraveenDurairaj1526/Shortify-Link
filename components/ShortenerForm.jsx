@@ -1,6 +1,5 @@
 "use client"
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState,useEffect } from 'react';
 import { db } from '@/lib/firebase.config';
 import { collection, addDoc } from "firebase/firestore";
 import { v4 as uuid4 } from "uuid";
@@ -12,7 +11,6 @@ const ShortenerForm = () => {
     const [shortUrl, setShortUrl] = useState("");
     const [copied, setCopied] = useState(false);
     const [loading, setLoading] = useState(false)
-    const router = useRouter();
     const [inputError, setInputError] = useState('')
 
     const handleSubmit = async (e) => {
@@ -38,7 +36,6 @@ const ShortenerForm = () => {
             setUrl("");
             setInputError('')
         } else {
-            // router.push("/url-creation-error");
             setInputError('Invalid URL. Please enter a proper URL starting with http:// or https://.')
         }
     }
@@ -67,7 +64,7 @@ const ShortenerForm = () => {
                     />
                     <button
                         onClick={handleSubmit}
-                        className="bg-[#3e8be8] gap-2 flex items-center justify-center shrink-0 text-white font-medium p-[10px] sm:p-[12px_24px] rounded-full transition-all duration-300"
+                        className="bg-[#066AE5] gap-2 flex items-center justify-center shrink-0 text-white font-medium p-[10px] sm:p-[12px_24px] rounded-full transition-all duration-300"
                     >
                         <span className={'hidden sm:block'}>Shorten URL</span>
                         {loading && <Loader loaderStyle='border-white ' />}
