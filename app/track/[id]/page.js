@@ -1,94 +1,43 @@
 "use client";
+import React, { useState, useEffect } from "react";
+import { db } from "@/lib/firebase.config";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import TrackUrl from "@/components/TrackUrl";
+import Link from "next/link";
+import { SearchIcon } from "@/SvgIcons/getSvgIcons";
 
-import { LinkIcon } from "@/SvgIcons/getSvgIcons";
-import React from "react";
+export default function TrackClicksPage({ params }) {
+    const [linkData, setLinkData] = useState()
 
-const campaignData = {
-    breadcrumbs: ["Dashboard", "Links", "Track Clicks"],
-    title: "Track Clicks & Performance",
-    stats: {
-        totalClicks: 1250,
-    },
-    campaign: {
-        name: "Affiliate Blog Campaign - October",
-        createdAt: "Oct 10, 2025",
-        shortLink: "https://shortifylink.in/abc123",
-        originalUrl: "https://www.verylongurl.com/with/lots-of-details-to-track-campaigns",
-    },
-};
+    useEffect(() => {
+        const fetchData = async () => {
+            const q = query(collection(db, "manage__test_url"), where("id", "==", params.id));
+            const snapshot = await getDocs(q);
+            if (!snapshot.empty) {
+                setLinkData(snapshot.docs[0].data());
+            }
+        };
 
-export default function TrackClicksPage() {
-    const { breadcrumbs, title, stats, campaign } = campaignData;
+        fetchData();
+    }, [params.id]);
 
     return (
-        <main className="flex-1 px-[15px] py-8 md:py-12  bg-[#F0F8FF] min-h-[600px]">
-            <div className="w-full max-w-4xl mx-auto flex flex-col gap-6">
-                <div className="flex justify-between items-center gap-[18px] flex-wrap">
+        <>
+            <main className="flex-1 px-[15px] py-8 md:py-12  bg-[#F0F8FF] min-h-[600px]">
+                <div className="w-full max-w-4xl mx-auto flex flex-col gap-6">
                     <h1 className='text-[24px] sm:text-[28px] font-semibold'>Track your clicks</h1>
-                    <input className="sm:w-[320px] p-1 px-3 h-10 border border-gray-200 rounded-lg" placeholder="Enter tracking URL" />
-                </div>
-
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {/* Campaign Details Section */}
-                    <section className="p-6 rounded-xl bg-card-light border border-border-light md:col-span-3 bg-white">
-                        <div className="flex flex-col gap-6">
-                            <div className="flex justify-between items-start gap-4">
-                                <div>
-                                    <h2 className="text-[20px] sm:text-xl font-bold text-text-light mb-3">
-                                        {campaign.name}
-                                    </h2>
-                                    <p className="text-text-secondary-light text-sm">
-                                        Created: {campaign.createdAt}
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                {/*  Total Clicks */}
-                                <div className="flex flex-col gap-2 p-4 rounded-lg bg-[#f2f7fb]">
-                                    <label className="text-sm font-semibold text-text-secondary-light">
-                                        Total Clicks
-                                    </label>
-                                    <p className="text-2xl  font-semibold text-[#3e8be8]">
-                                        {stats.totalClicks.toLocaleString()}
-                                    </p>
-                                </div>
-
-                                {/* Short Link */}
-                                <div className="flex flex-col gap-2 p-4 rounded-lg bg-[#f2f7fb]">
-                                    <label className="text-sm font-semibold text-text-secondary-light">
-                                        Short Link
-                                    </label>
-                                    <div className="flex items-center gap-2">
-                                        <p className="text-primary truncate text-[#3e8be8]">
-                                            {campaign.shortLink}
-                                        </p>
-                                        <button className="ml-auto p-2 rounded-full hover:bg-primary/20 text-text-secondary-light hover:text-primary">
-                                            <LinkIcon />
-                                        </button>
-                                    </div>
-                                </div>
-
-                                {/* Original URL */}
-                                <div className="flex flex-col gap-2 p-4 rounded-lg bg-[#f2f7fb]">
-                                    <label className="text-sm font-semibold text-text-secondary-light">
-                                        Original URL
-                                    </label>
-                                    <div className="flex items-center gap-2">
-                                        <p className="text-text-light truncate">
-                                            {campaign.originalUrl}
-                                        </p>
-                                        <button className="ml-auto p-2 rounded-full hover:bg-primary/20 text-text-secondary-light hover:text-primary">
-                                            open
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+                    <div className="flex justify-between items-center gap-[18px] flex-wrap">
+                        <div className=" w-full sm:w-[340px] p-[4px_4px_4px_18px] h-11 border border-gray-200 rounded-[30px] flex justify-between bg-white">
+                            <input className="flex-grow bg-white focus:outline-none focus:ring-0" placeholder="Enter tracking URL" />
+                            <div className="bg-[#066AE5] flex items-center justify-center shrink-0 rounded-full p-4 text-white cursor-pointer"><SearchIcon /></div>
                         </div>
-                    </section>
+                        <Link href={'/'} className="bg-[#066AE5] gap-2 flex items-center justify-center shrink-0 text-white font-medium p-[10px_18px] sm:p-[10px_24px] rounded-full transition-all duration-300">Create New short Url</Link>
+                    </div>
+                    <TrackUrl data={linkData} />
                 </div>
-            </div>
-        </main>
+            </main>
+
+        </>
+
     );
 }

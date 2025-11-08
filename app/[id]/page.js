@@ -1,13 +1,19 @@
 import { db } from "@/lib/firebase.config";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, query, where, getDocs, doc, updateDoc, increment } from "firebase/firestore";
 import { redirect } from "next/navigation";
 
 export default async function RedirectPage({ params }) {
-    const q = query(collection(db, "manage_url"), where("id", "==", params.id));
+    const q = query(collection(db, "manage__test_url"), where("id", "==", params.id));
     const snapshot = await getDocs(q);
 
     if (!snapshot.empty) {
+        const docRef = snapshot.docs[0].ref;
         const data = snapshot.docs[0].data();
+
+        await updateDoc(docRef, {
+            clickCount: increment(1)
+        });
+
         redirect(data.originalUrl);
     } else {
         return (
