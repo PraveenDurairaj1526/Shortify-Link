@@ -1,16 +1,17 @@
 
 import About from "@/components/About";
+import HowItWorks from "@/components/HowItWorks";
 import ShortenerForm from "@/components/ShortenerForm";
 import WhyChoose from "@/components/WhyChoose";
 
 export const metadata = {
-  title: "Free URL Shortener | Shortify Link – Create, Shorten & Share Short URL",
-  description: "Shortify Link is a free and fast URL shortener to shorten long links instantly. Generate simple, clean short URL for websites, social media, and marketing use. Share short links easily and boost your online visibility.",
-  keywords: "url shortener, free url shortener, short url, short link, free custom URL shortener for affiliate marketing, best branded link shortener for bloggers, shortcut link free, url shortening site",
+  title: "Shortify Link | Free URL Shortener with Click Tracking & Analytics",
+  description: "Shortify Link is a free URL shortener that lets you shorten links instantly, create branded URLs, and track clicks in real time. Monitor link performance and share easily across social media, websites, and marketing campaigns.",
+  keywords: "url shortener, free url shortener, short url, short link, custom short links, branded url shortener, url click tracking, link tracking tool, url analytics, free custom url shortener for affiliate marketing, best branded link shortener for bloggers, url shortening site",
   authors: [{ name: "Shortify Link" }],
   openGraph: {
-    title: "Shortify Link | Free URL Shortener",
-    description: "Shorten long URLs instantly with Shortify Link",
+    title: "Shortify Link | Free URL Shortener with Click Tracking",
+    description: "Shortify Link is a free URL shortener that lets you shorten links instantly, create branded URLs, and track clicks in real time. Monitor link performance and share easily across social media, websites, and marketing campaigns.",
     url: "https://www.shortifylink.in/",
     siteName: "Shortify Link",
     images: [
@@ -32,6 +33,7 @@ export default function Home() {
     <main>
       <ShortenerForm />
       <About />
+      <HowItWorks/>
       <WhyChoose />
     </main>
   );

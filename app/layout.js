@@ -11,7 +11,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="https://www.shortifylink.in/favicon.ico" ></link>
+        <link rel="icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="512x512" href="/faviconChrom.png" />
         <link rel="icon" type="image/png" sizes="192x192" href="/faviconmobile.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/faviconxl.png" />

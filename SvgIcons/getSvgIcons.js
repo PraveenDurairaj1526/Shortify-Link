@@ -142,6 +142,50 @@ export const CloseIcon = ({ className }) => {
 
 export const Loader = ({ loaderStyle }) => {
   return (
-    <div className={`w-6 h-6 border-2  border-t-transparent rounded-full animate-spin ${loaderStyle ?? 'border-blue-500'}`}></div>
+    <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+
+  )
+}
+
+export const OpenWebsiteIcon = ({ className }) => {
+  return (
+    <svg className={className} width="18px" height="18px" viewBox="0 0 64 64" strokeWidth="3" stroke="currentColor" fill="none"><path d="M55.4,32V53.58a1.81,1.81,0,0,1-1.82,1.82H10.42A1.81,1.81,0,0,1,8.6,53.58V10.42A1.81,1.81,0,0,1,10.42,8.6H32" /><polyline points="40.32 8.6 55.4 8.6 55.4 24.18" /><line x1="19.32" y1="45.72" x2="54.61" y2="8.91" /></svg>
+  )
+}
+export const SkeletonLoader = ({ containerStyle }) => {
+  return (
+    <div className={`relative overflow-hidden bg-white rounded-md h-6 animate-pulse ${containerStyle}`}>
+      <div className="absolute inset-0 bg-gradient-to-r from-white bg-blue-300 to-bg-white "></div>
+    </div>
+  )
+}
+
+export const SearchIcon = ({ className }) => {
+  return (
+    <svg width="20px" height="20px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M221.09,64A157.09,157.09,0,1,0,378.18,221.09,157.1,157.1,0,0,0,221.09,64Z"
+        style={{
+          fill: "none",
+          stroke: "currentColor",
+          strokeMiterlimit: 10,
+          strokeWidth: 50
+        }}
+      />
+      <line
+        x1="338.29"
+        y1="338.29"
+        x2="448"
+        y2="448"
+        style={{
+          fill: "none",
+          stroke: "currentColor",
+          strokeLinecap: "round",
+          strokeMiterlimit: 10,
+          strokeWidth: 50
+        }}
+      />
+    </svg>
+
   )
 }
