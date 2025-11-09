@@ -25,7 +25,7 @@ const TrackUrl = ({ data }) => {
         }
     };
     return (
-        <div className="bg-white rounded-xl shadow-sm border border-border-light  p-6 sm:p-8">
+        <div className="bg-white rounded-xl shadow-sm border border-border-light  p-6 sm:p-8 word-break">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
                 <div className="lg:col-span-2">
                     <h2 className="text-xl font-semibold text-text-light mb-4">Link Details</h2>
@@ -55,10 +55,10 @@ const TrackUrl = ({ data }) => {
                         <div>
                             <label className="text-sm font-medium text-text-secondary-light mb-2 inline-block">Original URL</label>
                             {data?.originalUrl ?
-                                <a className="text-[#3e8be8] hover:underline truncate flex items-center gap-3" href={data?.originalUrl} target="_blank">
+                                <a className="text-[#3e8be8] hover:underline truncate flex items-center flex-wrap gap-1 " href={data?.originalUrl} target="_blank">
                                     {data?.originalUrl}
-                                    <div>
-                                        <span className="text-sm">open</span>
+                                    <div className='flex gap-2 items-center'>
+                                        <span>open</span>
                                         <OpenWebsiteIcon />
                                     </div>
                                 </a>
@@ -70,7 +70,7 @@ const TrackUrl = ({ data }) => {
                     <h2 className="text-xl font-semibold text-text-light mb-4">Performance</h2>
                     <div className="bg-slate-50  rounded-lg p-6 flex flex-col items-center justify-center text-center h-full">
                         <h3 className="text-sm font-medium text-text-secondary-light">Total Clicks</h3>
-                        {data?.clickCount ? <p className="text-5xl font-bold text-[#3e8be8] my-3">{data?.clickCount}</p> : <SkeletonLoader containerStyle={' h-[40px] w-[100px] my-3'} />}
+                        {data?.clickCount >= 0  ? <p className="text-5xl font-bold text-[#3e8be8] my-3">{data?.clickCount}</p> : <SkeletonLoader containerStyle={' h-[40px] w-[100px] my-3'} />}
                         <div className="text-sm text-text-secondary-light flex flex-wrap gap-3">Created: {formattedDate||<SkeletonLoader containerStyle={'w-[100px]'} />} </ div>
                     </div>
                 </div>

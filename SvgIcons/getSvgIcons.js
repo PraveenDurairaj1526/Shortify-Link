@@ -169,7 +169,7 @@ export const SearchIcon = ({ className }) => {
           fill: "none",
           stroke: "currentColor",
           strokeMiterlimit: 10,
-          strokeWidth: 36
+          strokeWidth: 50
         }}
       />
       <line
@@ -182,7 +182,7 @@ export const SearchIcon = ({ className }) => {
           stroke: "currentColor",
           strokeLinecap: "round",
           strokeMiterlimit: 10,
-          strokeWidth: 36
+          strokeWidth: 50
         }}
       />
     </svg>

@@ -3,7 +3,7 @@ import { collection, query, where, getDocs, doc, updateDoc, increment } from "fi
 import { redirect } from "next/navigation";
 
 export default async function RedirectPage({ params }) {
-    const q = query(collection(db, "manage__test_url"), where("id", "==", params.id));
+    const q = query(collection(db, "manage_url"), where("id", "==", params.id));
     const snapshot = await getDocs(q);
 
     if (!snapshot.empty) {
