@@ -3,6 +3,10 @@ import React from 'react'
 export const getSiteData = {
     navData: [
         {
+            text: 'Track URL',
+            link: '/track/search'
+        },
+         {
             text: 'About',
             link: '/#about'
         },
