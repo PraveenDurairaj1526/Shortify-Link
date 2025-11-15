@@ -2,6 +2,13 @@ import { db } from "@/lib/firebase.config";
 import { collection, query, where, getDocs, doc, updateDoc, increment } from "firebase/firestore";
 import { redirect } from "next/navigation";
 
+export const metadata = {
+    robots: {
+        index: false,
+        follow: false,
+    },
+};
+
 export default async function RedirectPage({ params }) {
     const q = query(collection(db, "manage_url"), where("id", "==", params.id));
     const snapshot = await getDocs(q);

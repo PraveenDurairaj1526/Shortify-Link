@@ -49,13 +49,11 @@ const ShortenerForm = () => {
     return (
         <div className="bg-[url(/banner-background.webp)] min-h-[600px] bg-cover">
             <div className="p-[60px_15px] sm:p-[100px_15px] grid justify-center items-center">
-                <h1 className="text-[32px] sm:text-[46px] font-semibold text-center mb-4">
-                    Free URL Shortener with Click Tracking
-                </h1>
-                <p className='sm:max-w-[80%] text-center mx-auto'>Shortify Link is a free and reliable URL shortener that not only <span className='font-semibold'>creates short links instantly</span> but also helps you <span className='font-semibold'>track URL clicks in real time.</span> Simplify long URLs, monitor link performance, and share branded short links across social media, emails, and websites effortlessly.</p>
-                 <div className='flex gap-4 items-center mt-5 justify-center'>
-                    <Link href={'#howItWorks'}  className="gap-2 flex items-center justify-center shrink-0 text-[#3e8be8] font-medium p-[11px_24px] rounded-full border border-[#3e8be8]">How it works</Link>
-                    <Link href={'/track/search'}  className="bg-[#066AE5] gap-2 flex items-center justify-center shrink-0 text-white font-medium p-[12px_24px] rounded-full transition-all duration-300">Track URL</Link>
+                <h1 className="text-[32px] sm:text-[46px] font-semibold text-center mb-4"> Free URL Shortener with Click Tracking</h1>
+                <p className='sm:max-w-[80%] text-center mx-auto'>Shortify Link is a free and reliable URL shortener that instantly creates clean, shareable short links while allowing you to <span className='font-semibold'>track URL clicks in real time.</span> Simplify long URLs, generate <span className='font-semibold'>LinkedIn short URLs, Instagram short URLs, Amazon short URLs, Google Maps short URLs,</span> and more. Share branded short links across social media, emails, websites, or marketing campaigns effortlessly.</p>
+                <div className='flex gap-4 items-center mt-5 justify-center'>
+                    <Link href={'#howItWorks'} className="gap-2 flex items-center justify-center shrink-0 text-[#3e8be8] font-medium p-[11px_24px] rounded-full border border-[#3e8be8]">How it works</Link>
+                    <Link href={'/track/search'} className="bg-[#066AE5] gap-2 flex items-center justify-center shrink-0 text-white font-medium p-[12px_24px] rounded-full transition-all duration-300">Track URL</Link>
                 </div>
                 <div className="flex justify-between gap-2 bg-white rounded-[30px] p-[2px] mt-[30px] sm:max-w-[80%] mx-auto w-full border-2 border-[#3e8be8]">
                     <input
@@ -66,6 +64,7 @@ const ShortenerForm = () => {
                         onChange={(e) => setUrl(e.target.value)}
                     />
                     <button
+                        aria-label="Shorten link"
                         onClick={handleSubmit}
                         className="bg-[#066AE5] gap-2 flex items-center justify-center shrink-0 text-white font-medium p-[10px] sm:p-[12px_24px] rounded-full transition-all duration-300"
                     >
