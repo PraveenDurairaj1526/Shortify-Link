@@ -56,7 +56,7 @@ export const FeatureIcon1 = ({ className }) => {
 
 export const FeatureIcon2 = ({ className }) => {
   return (
-    <svg fill="CurrentColor" version="1.1" className={className} 
+    <svg fill="CurrentColor" version="1.1" className={className}
       width="24px" height="24px" viewBox="0 0 431.456 431.455">
       <g>
         <path d="M215.728,0C96.775,0,0,96.775,0,215.728c0,118.95,96.775,215.728,215.728,215.728c118.95,0,215.728-96.777,215.728-215.728
@@ -99,28 +99,112 @@ export const FeatureIcon3 = ({ className }) => {
 
 export const FeatureIcon4 = ({ className }) => {
   return (
- 
-<svg fill="CurrentColor" className={className} width="24px" height="24px" 
-	 viewBox="0 0 48.832 48.832"
-	 >
-<g>
-	<g id="Layer_20_51_">
-		<g>
-			<polygon points="15.42,32.814 22.23,32.814 22.23,34.385 15.42,34.385 15.42,35.68 36.838,35.68 36.838,34.385 28.898,34.385 
+
+    <svg fill="CurrentColor" className={className} width="24px" height="24px"
+      viewBox="0 0 48.832 48.832"
+    >
+      <g>
+        <g id="Layer_20_51_">
+          <g>
+            <polygon points="15.42,32.814 22.23,32.814 22.23,34.385 15.42,34.385 15.42,35.68 36.838,35.68 36.838,34.385 28.898,34.385 
 				28.898,32.814 37.729,32.814 37.729,29.227 15.42,29.227 			"/>
-			<polygon points="9.489,11.231 41.957,11.231 41.957,24.209 44.739,24.209 44.739,8.449 6.707,8.449 6.707,17.14 9.489,17.14 			
+            <polygon points="9.489,11.231 41.957,11.231 41.957,24.209 44.739,24.209 44.739,8.449 6.707,8.449 6.707,17.14 9.489,17.14 			
 				"/>
-			<path d="M0,39.799h14.523V18.013H0V39.799z M7.568,38.705c-0.386,0-0.7-0.312-0.7-0.699c0-0.386,0.314-0.699,0.7-0.699
+            <path d="M0,39.799h14.523V18.013H0V39.799z M7.568,38.705c-0.386,0-0.7-0.312-0.7-0.699c0-0.386,0.314-0.699,0.7-0.699
 				c0.387,0,0.699,0.312,0.699,0.699S7.955,38.705,7.568,38.705z M2.1,20.113h10.325l-0.001,16.072H2.1V20.113z"/>
-			<path d="M38.715,25.046v15.337h10.117V25.046H38.715z M43.979,25.68c0.121,0,0.22,0.101,0.22,0.221
+            <path d="M38.715,25.046v15.337h10.117V25.046H38.715z M43.979,25.68c0.121,0,0.22,0.101,0.22,0.221
 				c0,0.121-0.099,0.222-0.22,0.222c-0.123,0-0.223-0.101-0.223-0.222C43.756,25.78,43.855,25.68,43.979,25.68z M42.665,26.416
 				h2.623v0.212h-2.623V26.416z M43.891,39.721c-0.291,0-0.524-0.236-0.524-0.525c0-0.29,0.233-0.524,0.524-0.524
 				c0.289,0,0.525,0.234,0.525,0.524C44.416,39.484,44.18,39.721,43.891,39.721z M47.369,37.915
 				c-2.368,0.013-6.016,0.022-7.189,0.012V27.382l7.189-0.001V37.915z"/>
-		</g>
-	</g>
-</g>
-</svg>
+          </g>
+        </g>
+      </g>
+    </svg>
   )
 }
 
+export const FeatureIcon5 = ({ className }) => {
+  return (
+    <svg 
+      className={className}
+      width="24px"
+      height="24px"
+      viewBox="0 0 128 128"
+      style={{ enableBackground: "new 0 0 128 128" }}
+      xmlSpace="preserve"
+    >
+      <path
+        fill="currentColor"
+        d="M122.465 12.122H5.535A5.53 5.53 0 0 0 0 17.657v80.26a5.53 5.53 0 0 0 5.535 5.535h43.918l-.692 4.359s-.242 2.647-2.647 4.411c-2.387 1.764-4.29 3.286-2.387 3.546 1.816.242 19.01.017 20.272 0 1.28.017 18.456.242 20.29 0 1.885-.259-.017-1.782-2.404-3.546-2.404-1.764-2.647-4.411-2.647-4.411l-.675-4.359h43.901a5.53 5.53 0 0 0 5.535-5.535v-80.26a5.528 5.528 0 0 0-5.534-5.535zm-2.768 74.724H8.303V20.424h111.395v66.422zM26.294 58.468h11.069v20.758H26.294V58.468zm23.524-6.227h11.071v26.985H49.818V52.241zM71.96 48.09h11.07v31.136H71.96V48.09zm20.756-7.957h11.071v39.093H92.716V40.133z"
+      />
+    </svg>
+  );
+};
+
+
+export const MenuIcon = ({ className }) => {
+  return (
+    <svg className={className} width="30px" height="30px" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path fillRule="evenodd" clipRule="evenodd" d="M4 5C3.44772 5 3 5.44772 3 6C3 6.55228 3.44772 7 4 7H20C20.5523 7 21 6.55228 21 6C21 5.44772 20.5523 5 20 5H4ZM7 12C7 11.4477 7.44772 11 8 11H20C20.5523 11 21 11.4477 21 12C21 12.5523 20.5523 13 20 13H8C7.44772 13 7 12.5523 7 12ZM13 18C13 17.4477 13.4477 17 14 17H20C20.5523 17 21 17.4477 21 18C21 18.5523 20.5523 19 20 19H14C13.4477 19 13 18.5523 13 18Z" fill="currentColor" />
+    </svg>
+  )
+}
+
+export const CloseIcon = ({ className }) => {
+  return (
+    <svg className={className} width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fillRule="evenodd" clipRule="evenodd" d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z" fill="currentColor" />
+    </svg>
+  )
+}
+
+export const Loader = ({ loaderStyle }) => {
+  return (
+    <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+
+  )
+}
+
+export const OpenWebsiteIcon = ({ className }) => {
+  return (
+    <svg className={className} width="18px" height="18px" viewBox="0 0 64 64" strokeWidth="3" stroke="currentColor" fill="none"><path d="M55.4,32V53.58a1.81,1.81,0,0,1-1.82,1.82H10.42A1.81,1.81,0,0,1,8.6,53.58V10.42A1.81,1.81,0,0,1,10.42,8.6H32" /><polyline points="40.32 8.6 55.4 8.6 55.4 24.18" /><line x1="19.32" y1="45.72" x2="54.61" y2="8.91" /></svg>
+  )
+}
+export const SkeletonLoader = ({ containerStyle }) => {
+  return (
+    <div className={`relative overflow-hidden bg-white rounded-md h-6 animate-pulse ${containerStyle}`}>
+      <div className="absolute inset-0 bg-gradient-to-r from-white bg-blue-300 to-bg-white "></div>
+    </div>
+  )
+}
+
+export const SearchIcon = ({ className }) => {
+  return (
+    <svg width="20px" height="20px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M221.09,64A157.09,157.09,0,1,0,378.18,221.09,157.1,157.1,0,0,0,221.09,64Z"
+        style={{
+          fill: "none",
+          stroke: "currentColor",
+          strokeMiterlimit: 10,
+          strokeWidth: 50
+        }}
+      />
+      <line
+        x1="338.29"
+        y1="338.29"
+        x2="448"
+        y2="448"
+        style={{
+          fill: "none",
+          stroke: "currentColor",
+          strokeLinecap: "round",
+          strokeMiterlimit: 10,
+          strokeWidth: 50
+        }}
+      />
+    </svg>
+
+  )
+}

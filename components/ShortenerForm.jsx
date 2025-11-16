@@ -1,98 +1,113 @@
 "use client"
-
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { db } from '@/lib/firebase.config';
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { v4 as uuid4 } from "uuid";
-import { ArrowIcon, LinkIcon } from '@/SvgIcons/getSvgIcons';
+import { ArrowIcon, Loader } from '@/SvgIcons/getSvgIcons';
+import Link from 'next/link';
 
 const ShortenerForm = () => {
     const [url, setUrl] = useState("");
-    const [originalUrl, setOriginalUrl] = useState("");
-    const [shortUrl, setShortUrl] = useState("");
-    const [copied, setCopied] = useState(false);
+    const [loading, setLoading] = useState(false)
+    const [inputError, setInputError] = useState('')
     const router = useRouter();
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!url) return;
+
+        if (!url) {
+            setInputError('Invalid URL. Please enter a proper URL starting with http:// or https://.')
+            return
+        };
 
         const trimUrl = url.trim();
 
-        if (trimUrl && trimUrl.startsWith('https')) {
+        if (trimUrl && trimUrl.startsWith('https') || trimUrl.startsWith('http')) {
+            setLoading(true)
             const id = uuid4().slice(0, 5);
             await addDoc(collection(db, "manage_url"), {
                 id,
                 originalUrl: trimUrl,
+                shortUrl: `${window.location.origin}/${id}`,
+                clickCount: 0,
+                trackingUrl: `${window.location.origin}/track/${id}`,
+                createAt: serverTimestamp()
             });
-            setOriginalUrl(trimUrl);
-            setShortUrl(`${window.location.origin}/${id}`);
+            setLoading(false)
             setUrl("");
+            setInputError('')
+            router.push(`/track/${id}`);
+
         } else {
-            router.push("/url-creation-error");
+            setInputError('Invalid URL. Please enter a proper URL starting with http:// or https://.')
         }
     }
 
-    const handleCopy = async () => {
-        if (!shortUrl) return;
-        await navigator.clipboard.writeText(shortUrl);
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
-    };
 
     return (
-        <div className="bg-[url(/banner-background.webp)] min-h-[600px] bg-cover">
-            <div className="p-[60px_15px] sm:p-[100px_15px] grid justify-center items-center">
-                <h1 className="text-[32px] sm:text-[46px] font-semibold text-center mb-3">
-                    Free URL Shortener to Simplify Your Links
-                </h1>
-                <p className='sm:max-w-[80%] text-center mx-auto'>Shortify Link is a free URL shortener that creates short URLs and short links instantly. Make long links concise and easy to share across social media, emails, and websites.</p>
-                <div className="flex justify-between gap-2 bg-white rounded-[30px] p-[2px] mt-[30px] sm:max-w-[80%] mx-auto w-full border-2 border-[#3e8be8]">
-                    <input
-                        type="url"
-                        value={url}
-                        placeholder="Enter your long URL"
-                        className="w-full ps-[20px] focus:outline-none focus:ring-0 rounded-[30px]"
-                        onChange={(e) => setUrl(e.target.value)}
-                    />
-                    <button
-                        onClick={handleSubmit}
-                        className="bg-gradient-to-r from-blue-500 to-indigo-500 shrink-0 text-white font-semibold p-[10px] sm:p-[12px_24px] rounded-full hover:from-indigo-500 hover:to-blue-500 transition-all duration-300"
-                    >
-                        <span className={'hidden sm:block'}>Shorten URL</span>
-                        <ArrowIcon className={'block sm:hidden'} />
-                    </button>
+        <div className="relative bg-[url(/banner-background.webp)] bg-cover bg-center py-16 sm:py-24 min-h-[600px]">
+            <div className="relative z-10 max-w-[1300px] mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-10 gap-y-0 items-center ">
+                <div className="text-black space-y-6 order-2 sm:order-1">
+                    <h1 className="text-[30px] sm:text-[44px] font-bold leading-tight hidden sm:block">
+                        Free URL Shortener with{" "}
+                        <span className="bg-gradient-to-r from-[#066AE5] to-[#3da0ff] bg-clip-text text-transparent">
+                            Click Tracking
+                        </span>
+                    </h1>
+                    <p className="text-black text-base sm:text-lg leading-relaxed">
+                        <span className="font-semibold">Shortify Link</span> is a free and reliable URL shortener that instantly creates clean,
+                        shareable links and allows you to <span className="font-semibold">track URL clicks in real time.</span> Generate
+                        <span className="font-semibold"> LinkedIn short URLs, Instagram short URLs, Amazon short URLs, Google Maps short URLs</span>,
+                        and more effortlessly.
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+                        <Link href="#howItWorks" className="text-[#3e8be8] font-medium py-3 px-6 rounded-full border border-[#3e8be8] bg-white shadow-sm text-center hover:bg-[#e4f1ff] transition-all">
+                            How it works
+                        </Link>
+                        <Link href="/track/search" className="bg-[#066AE5] text-white font-medium py-3 px-6 rounded-full shadow-md hover:bg-[#055ac6] transition-all text-center">
+                            Track URL
+                        </Link>
+                    </div>
+                </div>
+                {/* RIGHT SIDE URL INPUT */}
+                <div className='order-1 sm:order-2'>
+                    <h1 className="text-[30px] sm:text-[44px] font-bold leading-tight sm:hidden mb-4">
+                        Free URL Shortener with{" "}
+                        <span className="bg-gradient-to-r from-[#066AE5] to-[#3da0ff] bg-clip-text text-transparent">
+                            Click Tracking
+                        </span>
+                    </h1>
+                    <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-3 sm:p-7 shadow-lg border border-white/50 w-full ">
+                        <label className="text-gray-800 font-semibold text-lg mb-3 text-left inline-block">
+                            Shorten Your URL
+                        </label>
+                        <div className="flex justify-between gap-2 bg-white rounded-[30px] p-[2px]  w-full border-2 border-[#3e8be8]">
+                            <input
+                                type="url"
+                                value={url}
+                                placeholder="Enter your long URL"
+                                className="w-full ps-[20px] focus:outline-none focus:ring-0 rounded-[30px]"
+                                onChange={(e) => setUrl(e.target.value)}
+                            />
+                            <button
+                                aria-label="Shorten link"
+                                onClick={handleSubmit}
+                                className="bg-[#066AE5] gap-2 flex items-center justify-center shrink-0 text-white font-medium p-[10px] sm:p-[12px_24px] rounded-full transition-all duration-300"
+                            >
+                                <span className={'hidden sm:block'}>Shorten URL</span>
+                                {loading && <Loader />}
+                                <ArrowIcon className={'block sm:hidden'} />
+                            </button>
+                        </div>
+                        {inputError && <p className='text-red-600 text-base mt-1'>{inputError}</p>}
+                    </div>
                 </div>
 
-                {shortUrl &&
-                    <div className="border break-all border-[#2d7be3] bg-white p-3 min-h-[100px] shadow-[1px_4px_16px_7px_#dcebfd] my-[20px] mx-auto w-full sm:max-w-[70%] rounded-[12px]">
-                        {originalUrl && <div className='mb-2'>
-                            <p className='font-semibold mb-1'>Original URL</p>
-                            <p>{originalUrl}</p>
-                        </div>}
-                        {shortUrl && <>
-                            <p className='font-semibold mb-1'>Short URL</p>
-                            <div className='flex gap-2 items-start'>
-                                <a href={shortUrl} target="_blank" rel="noreferrer" className='text-blue-500' >{shortUrl}</a>
-                                <button
-                                    onClick={handleCopy}
-                                    className="bg-blue-600 text-white text-sm  p-1 rounded-full group  top-[-4px]
-                                     relative  hover:bg-blue-700 transition flex items-center shrink-0"
-                                >
-                                    <p className="text-[12px] break-normal px-3 py-1 rounded-[24px] bg-black text-white absolute top-[calc(-100%-2px)] left-1/2 -translate-x-1/2 hidden group-hover:flex">
-                                        {copied ? "Copied!" : "Copy"}
-                                    </p>
-                                    <LinkIcon />
-                                </button>
-                            </div>
-
-
-                        </>}
-                    </div>
-                }
             </div>
         </div>
+
     );
 }
 
