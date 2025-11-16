@@ -42,7 +42,7 @@ const TrackUrl = ({ data }) => {
                             </div>
                         </div>
                         <div>
-                            <label className="text-sm font-medium text-text-secondary-light" >Tracing URL</label>
+                            <label className="text-sm font-medium text-text-secondary-light" >Tracking URL</label>
                             <div className="flex flex-col sm:flex-row items-start sm:items-center mt-2 gap-4 bg-slate-50 rounded-lg p-3">
                                 {data?.trackingUrl ? <a className="flex-grow text-lg font-medium text-[#3e8be8] bg-transparent border-0 p-0 focus:ring-0" href={data?.trackingUrl} >{data?.trackingUrl}</a> : <SkeletonLoader containerStyle={'w-full'} />}
                                 <button onClick={() => handleCopy(data?.trackingUrl, 'trackingUrl')}

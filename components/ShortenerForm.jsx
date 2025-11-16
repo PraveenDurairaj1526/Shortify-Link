@@ -27,7 +27,7 @@ const ShortenerForm = () => {
         if (trimUrl && trimUrl.startsWith('https') || trimUrl.startsWith('http')) {
             setLoading(true)
             const id = uuid4().slice(0, 5);
-            await addDoc(collection(db, "manage_url"), {
+            await addDoc(collection(db, "manage__test_url"), {
                 id,
                 originalUrl: trimUrl,
                 shortUrl: `${window.location.origin}/${id}`,
@@ -47,35 +47,67 @@ const ShortenerForm = () => {
 
 
     return (
-        <div className="bg-[url(/banner-background.webp)] min-h-[600px] bg-cover">
-            <div className="p-[60px_15px] sm:p-[100px_15px] grid justify-center items-center">
-                <h1 className="text-[32px] sm:text-[46px] font-semibold text-center mb-4"> Free URL Shortener with Click Tracking</h1>
-                <p className='sm:max-w-[80%] text-center mx-auto'>Shortify Link is a free and reliable URL shortener that instantly creates clean, shareable short links while allowing you to <span className='font-semibold'>track URL clicks in real time.</span> Simplify long URLs, generate <span className='font-semibold'>LinkedIn short URLs, Instagram short URLs, Amazon short URLs, Google Maps short URLs,</span> and more. Share branded short links across social media, emails, websites, or marketing campaigns effortlessly.</p>
-                <div className='flex gap-4 items-center mt-5 justify-center'>
-                    <Link href={'#howItWorks'} className="gap-2 flex items-center justify-center shrink-0 text-[#3e8be8] font-medium p-[11px_24px] rounded-full border border-[#3e8be8]">How it works</Link>
-                    <Link href={'/track/search'} className="bg-[#066AE5] gap-2 flex items-center justify-center shrink-0 text-white font-medium p-[12px_24px] rounded-full transition-all duration-300">Track URL</Link>
+        <div className="relative bg-[url(/banner-background.webp)] bg-cover bg-center py-16 sm:py-24 min-h-[600px]">
+            <div className="relative z-10 max-w-[1300px] mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-10 gap-y-0 items-center ">
+                <div className="text-black space-y-6 order-2 sm:order-1">
+                    <h1 className="text-[30px] sm:text-[44px] font-bold leading-tight hidden sm:block">
+                        Free URL Shortener with{" "}
+                        <span className="bg-gradient-to-r from-[#066AE5] to-[#3da0ff] bg-clip-text text-transparent">
+                            Click Tracking
+                        </span>
+                    </h1>
+                    <p className="text-black text-base sm:text-lg leading-relaxed">
+                        <span className="font-semibold">Shortify Link</span> is a free and reliable URL shortener that instantly creates clean,
+                        shareable links and allows you to <span className="font-semibold">track URL clicks in real time.</span> Generate
+                        <span className="font-semibold"> LinkedIn short URLs, Instagram short URLs, Amazon short URLs, Google Maps short URLs</span>,
+                        and more effortlessly.
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+                        <Link href="#howItWorks" className="text-[#3e8be8] font-medium py-3 px-6 rounded-full border border-[#3e8be8] bg-white shadow-sm text-center hover:bg-[#e4f1ff] transition-all">
+                            How it works
+                        </Link>
+                        <Link href="/track/search" className="bg-[#066AE5] text-white font-medium py-3 px-6 rounded-full shadow-md hover:bg-[#055ac6] transition-all text-center">
+                            Track URL
+                        </Link>
+                    </div>
                 </div>
-                <div className="flex justify-between gap-2 bg-white rounded-[30px] p-[2px] mt-[30px] sm:max-w-[80%] mx-auto w-full border-2 border-[#3e8be8]">
-                    <input
-                        type="url"
-                        value={url}
-                        placeholder="Enter your long URL"
-                        className="w-full ps-[20px] focus:outline-none focus:ring-0 rounded-[30px]"
-                        onChange={(e) => setUrl(e.target.value)}
-                    />
-                    <button
-                        aria-label="Shorten link"
-                        onClick={handleSubmit}
-                        className="bg-[#066AE5] gap-2 flex items-center justify-center shrink-0 text-white font-medium p-[10px] sm:p-[12px_24px] rounded-full transition-all duration-300"
-                    >
-                        <span className={'hidden sm:block'}>Shorten URL</span>
-                        {loading && <Loader />}
-                        <ArrowIcon className={'block sm:hidden'} />
-                    </button>
+                {/* RIGHT SIDE URL INPUT */}
+                <div className='order-1 sm:order-2'>
+                    <h1 className="text-[30px] sm:text-[44px] font-bold leading-tight sm:hidden mb-4">
+                        Free URL Shortener with{" "}
+                        <span className="bg-gradient-to-r from-[#066AE5] to-[#3da0ff] bg-clip-text text-transparent">
+                            Click Tracking
+                        </span>
+                    </h1>
+                    <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-3 sm:p-7 shadow-lg border border-white/50 w-full ">
+                        <label className="text-gray-800 font-semibold text-lg mb-3 text-left inline-block">
+                            Shorten Your URL
+                        </label>
+                        <div className="flex justify-between gap-2 bg-white rounded-[30px] p-[2px]  w-full border-2 border-[#3e8be8]">
+                            <input
+                                type="url"
+                                value={url}
+                                placeholder="Enter your long URL"
+                                className="w-full ps-[20px] focus:outline-none focus:ring-0 rounded-[30px]"
+                                onChange={(e) => setUrl(e.target.value)}
+                            />
+                            <button
+                                aria-label="Shorten link"
+                                onClick={handleSubmit}
+                                className="bg-[#066AE5] gap-2 flex items-center justify-center shrink-0 text-white font-medium p-[10px] sm:p-[12px_24px] rounded-full transition-all duration-300"
+                            >
+                                <span className={'hidden sm:block'}>Shorten URL</span>
+                                {loading && <Loader />}
+                                <ArrowIcon className={'block sm:hidden'} />
+                            </button>
+                        </div>
+                        {inputError && <p className='text-red-600 text-base mt-1'>{inputError}</p>}
+                    </div>
                 </div>
-                {inputError && <p className='text-red-600 text-base sm:max-w-[80%] mx-auto mt-1'>{inputError}</p>}
+
             </div>
         </div>
+
     );
 }
 
