@@ -27,7 +27,7 @@ const ShortenerForm = () => {
         if (trimUrl && trimUrl.startsWith('https') || trimUrl.startsWith('http')) {
             setLoading(true)
             const id = uuid4().slice(0, 5);
-            await addDoc(collection(db, "manage__test_url"), {
+            await addDoc(collection(db, "manage_url"), {
                 id,
                 originalUrl: trimUrl,
                 shortUrl: `${window.location.origin}/${id}`,
