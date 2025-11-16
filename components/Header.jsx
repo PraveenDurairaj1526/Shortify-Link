@@ -23,7 +23,7 @@ const Header = () => {
 
             {/* mobile menu */}
             {show && <div
-                className={`flex flex-col '-left-[100%] opacity-0' gap-4 max-w-[280px] items-start justify-start w-full fixed top-0 h-screen bg-black p-5 lg:hidden transition-all duration-500 ease-in-out  ${show && 'left-0 opacity-100' 
+                className={`flex flex-col z-50 '-left-[100%] opacity-0' gap-4 max-w-[280px] items-start justify-start w-full fixed top-0 h-screen bg-black p-5 lg:hidden transition-all duration-500 ease-in-out  ${show && 'left-0 opacity-100' 
                     }`} 
             >
                 <div className='flex justify-end w-full' onClick={() => setShow(!show)}>

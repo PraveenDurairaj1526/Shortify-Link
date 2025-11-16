@@ -49,7 +49,7 @@ export const getSiteData = {
                 label: "Step 3",
                 title: "Share & Track Performance",
                 description:
-                    "Share your short URL anywhere  on social media, in emails, on your website, or in ads. Monitor click counts, devices, locations, and traffic sources in real time.",
+                    "Share your short URL anywhere  on social media, in emails, on your website, or in ads. Monitor click counts in real time.",
                 icon: "📊",
             },
         ]
