@@ -10,7 +10,7 @@ import { getSiteData } from "@/helpers/getStaticData";
 export const metadata = {
   title: "Free URL Shortener | Free URL Shortener with Click Tracking & Analytics",
   description: "Shortify Link is a free URL shortener that lets you shorten links instantly, create branded URLs, and track clicks in real time. Monitor link performance and share easily across social media, websites, and marketing campaigns.",
-  keywords: ["linkedin short url", "instagram short url", "amazon short url", "short url for google maps", "google maps short url", "canva shorten url", "dropbox short url", "Shortify Link", 'best url shortener', 'free url shortener', 'url shortener', 'url shortener generator'],
+  keywords: ["short link url","shorter link","linkedin short url", "instagram short url", "amazon short url", "short url for google maps", "google maps short url", "canva shorten url", "dropbox short url", "Shortify Link", 'best url shortener', 'free url shortener', 'url shortener', 'url shortener generator'],
   authors: [{ name: "Shortify Link" }],
   robots: {
     index: true,
