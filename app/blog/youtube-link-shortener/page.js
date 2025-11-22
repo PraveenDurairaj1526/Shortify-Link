@@ -82,7 +82,7 @@ const page = () => {
                             <h2 className="text-3xl font-semibold mb-4">Why Should You Shorten YouTube Links in 2025?</h2>
                             <p className="leading-relaxed mb-2 font-bold text-[18px]">Clean and Professional Sharing</p>
                             <p className="leading-relaxed mb-4">
-                                Long YouTube URLs can make your posts look cluttered and unprofessional, especially on platforms with limited space like X or Instagram captions. A short link keeps your content clean and visually appealing. It also helps your audience trust the link, increasing the chance of a click. Whether you're sharing a video, playlist, or channel, a short YouTube link enhances the overall presentation of your brand.
+                                Long YouTube URLs can make your posts look cluttered and unprofessional, especially on platforms with limited space like X or Instagram captions. A short link keeps your content clean and visually appealing. It also helps your audience trust the link, increasing the chance of a click. Whether you&apos;re sharing a video, playlist, or channel, a short YouTube link enhances the overall presentation of your brand.
                             </p>
                             <p className="leading-relaxed mb-3 font-bold text-[18px]">Better Click-Through Rates</p>
                             <p className="leading-relaxed mb-4">
@@ -91,7 +91,7 @@ const page = () => {
 
                             <p className="leading-relaxed mb-3 font-bold text-[18px]">Works Best for YouTube Shorts</p>
                             <p className="leading-relaxed mb-4">
-                                YouTube Shorts are widely shared on social media, making link appearance extremely important. Long Shorts URLs look messy and reduce the chances of people engaging with your content. A shortened YouTube Shorts link is not only easier to share but also improves your video's visibility across platforms. This makes your Shorts more likely to go viral and reach new audiences instantly.
+                                YouTube Shorts are widely shared on social media, making link appearance extremely important. Long Shorts URLs look messy and reduce the chances of people engaging with your content. A shortened YouTube Shorts link is not only easier to share but also improves your video&apos;s visibility across platforms. This makes your Shorts more likely to go viral and reach new audiences instantly.
                             </p>
 
                             <p className="leading-relaxed mb-3 font-bold text-[18px]">Easier to Track Performance</p>
@@ -99,7 +99,7 @@ const page = () => {
 
                             <p className="leading-relaxed mb-3 font-bold text-[18px]">Perfect for SMS, Email, and WhatsApp Sharing</p>
                             <p className="leading-relaxed mb-4">
-                                Long URLs often break or wrap poorly in messaging apps, making them difficult to click or understand. Short links solve this problem by keeping your YouTube URLs simple and clean. Whether you're sending a video to your audience, customers, or friends, a short YouTube link ensures it appears correctly. It also encourages more people to tap and watch immediately.
+                                Long URLs often break or wrap poorly in messaging apps, making them difficult to click or understand. Short links solve this problem by keeping your YouTube URLs simple and clean. Whether you&apos;re sending a video to your audience, customers, or friends, a short YouTube link ensures it appears correctly. It also encourages more people to tap and watch immediately.
                             </p>
                         </section>
                         <section id="heading3" className="mb-12">
@@ -107,7 +107,7 @@ const page = () => {
                             <ol className="list-decimal pl-6 space-y-2">
                                 <li>Go to the <Link href={'/'} className='text-blue-600 hover:underline'>Shortifiy Link</Link> platform.</li>
                                 <li>Paste your long YouTube Link into the input box.</li>
-                                <li>Click the <strong>"Shorten URL"</strong> button.</li>
+                                <li>Click the <strong>Shorten URL</strong> button.</li>
                                 <li>Copy your newly generated short link.</li>
                                 <li>Use the short link in WhatsApp, Instagram, blogs, emails, and other social media platforms</li>
                             </ol>
@@ -128,7 +128,7 @@ const page = () => {
 
                             <p className="leading-relaxed mb-3 font-bold text-[18px]">Track Clicks & Viewer Behavior</p>
                             <p className="leading-relaxed mb-4">
-                                Shortify provides analytics that regular YouTube links can’t offer. You can track total clicks, the countries your viewers come from, and which devices they use. These insights help you understand audience behavior and adjust your strategy accordingly. It's especially valuable for creators running promotions, collaborating with brands, or optimizing ad campaigns.
+                                Shortify provides analytics that regular YouTube links can’t offer. You can track total clicks, the countries your viewers come from, and which devices they use. These insights help you understand audience behavior and adjust your strategy accordingly. It&apos;s especially valuable for creators running promotions, collaborating with brands, or optimizing ad campaigns.
                             </p>
 
                             <p className="leading-relaxed mb-3 font-bold text-[18px]">Share Links Without Breaking the Layout</p>
@@ -139,7 +139,7 @@ const page = () => {
 
                         <section id="heading5" className="mt-12">
                             <h2 className="text-3xl font-semibold mb-4">Conclusion</h2>
-                            <p className="leading-relaxed mb-4">In 2025, using a free YouTube link shortener is more than convenience—it's a strategy. Whether you’re promoting a YouTube Shorts link, sharing long videos, or running marketing campaigns, shortened YouTube URLs give you:</p>
+                            <p className="leading-relaxed mb-4">In 2025, using a free YouTube link shortener is more than convenience—it&apos;s a strategy. Whether you’re promoting a YouTube Shorts link, sharing long videos, or running marketing campaigns, shortened YouTube URLs give you:</p>
                             <ol className="list-decimal pl-6 space-y-2 mb-4">
                                 <li>Cleaner sharing</li>
                                 <li>Higher engagement</li>

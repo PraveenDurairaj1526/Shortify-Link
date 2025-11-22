@@ -137,7 +137,7 @@ const page = () => {
                             <ol className="list-decimal pl-6 space-y-2">
                                 <li>Go to the <Link href={'/'} className='text-blue-600 hover:underline'>Shortifiy Link</Link> platform.</li>
                                 <li>Paste your long LinkedIn URL into the input box.</li>
-                                <li>Click the <strong>"Shorten URL"</strong> button.</li>
+                                <li>Click the <strong>Shorten URL</strong> button.</li>
                                 <li>Copy your newly generated short link.</li>
                                 <li>Use it in LinkedIn posts, articles, messages, or campaigns.</li>
                             </ol>

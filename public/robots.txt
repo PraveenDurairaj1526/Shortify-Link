@@ -4,6 +4,7 @@ Allow: /
 
 # *
 User-agent: *
+Disallow: /url-creation-error
 
 # Host
 Host: https://www.shortifylink.in

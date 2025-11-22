@@ -90,7 +90,7 @@ const page = () => {
                                 A short amazon link instantly makes your content look clean and professional.
                                 People trust simple links more because they look safer and easier to understand.
                                 Short links also make your message appear more organized and well-designed.
-                                Whether you're sharing products or affiliate links, clean URLs help build credibility.
+                                Whether you&apos;re sharing products or affiliate links, clean URLs help build credibility.
                             </p>
                             <p className="leading-relaxed mb-3 font-bold text-[18px]">Better for Social Media</p>
                             <p className="leading-relaxed mb-4">
@@ -149,7 +149,7 @@ const page = () => {
                             <p className="leading-relaxed mb-3 font-bold text-[18px]">Fast & Easy to Use</p>
                             <p className="leading-relaxed mb-4">
                                 Shortify Link is designed to be quick and beginner-friendly, even for first-time users.
-                                You don't need an account, login, or any technical skills to use it.
+                                You don&apos;t need an account, login, or any technical skills to use it.
                                 Just paste your long Amazon URL into the input box and click the shorten button.
                                 Your short amazon link appears instantly, ready to share anywhere.
                                 This makes it perfect for people who want a simple, no-hassle experience.
@@ -157,7 +157,7 @@ const page = () => {
 
                             <p className="leading-relaxed mb-3 font-bold text-[18px]">100% Free - No hidden Fee</p>
                             <p className="leading-relaxed mb-4">
-                                hortify Link does not charge you for creating short links it's completely free.
+                                shortify Link does not charge you for creating short links its completely free.
                                 You can shorten unlimited Amazon URLs without worrying about subscriptions or hidden fees.
                                 It’s a great option for Amazon affiliates, small businesses, and creators who want free tools.
                                 You get all the essential features without paying anything.
@@ -189,7 +189,7 @@ const page = () => {
                             <ol className="list-decimal pl-6 space-y-2">
                                 <li>Go to the <Link href={'/'} className='text-blue-600 hover:underline'>Shortifiy Link</Link> platform.</li>
                                 <li>Paste your long Amazon URL into the input box.</li>
-                                <li>Click the <strong>"Shorten URL"</strong> button.</li>
+                                <li>Click the <strong>Shorten URL</strong> button.</li>
                                 <li>Copy your newly generated short link.</li>
                                 <li>Use the short link in WhatsApp, Instagram, YouTube, blogs, emails, or Amazon affiliate promotions.</li>
                             </ol>
