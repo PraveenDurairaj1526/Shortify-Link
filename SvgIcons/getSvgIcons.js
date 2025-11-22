@@ -126,7 +126,7 @@ export const FeatureIcon4 = ({ className }) => {
 
 export const FeatureIcon5 = ({ className }) => {
   return (
-    <svg 
+    <svg
       className={className}
       width="24px"
       height="24px"
@@ -173,8 +173,10 @@ export const OpenWebsiteIcon = ({ className }) => {
 }
 export const SkeletonLoader = ({ containerStyle }) => {
   return (
-    <div className={`relative overflow-hidden bg-white rounded-md h-6 animate-pulse ${containerStyle}`}>
-      <div className="absolute inset-0 bg-gradient-to-r from-white bg-blue-300 to-bg-white "></div>
+  <div
+      className={`h-2 rounded-md bg-gray-200 overflow-hidden ${containerStyle}`}
+    >
+      <div className="h-full w-1/3 bg-blue-400 opacity-70 animate-pulse"></div>
     </div>
   )
 }
@@ -206,5 +208,11 @@ export const SearchIcon = ({ className }) => {
       />
     </svg>
 
+  )
+}
+
+export const RightArrowIcon = ({ className }) => {
+  return (
+    <svg className={className} width="12" height="12" viewBox="0 0 16 16" fill="none" ><path d="M13.5604 8.00004C13.5604 8.2868 13.4509 8.57351 13.2324 8.79214L6.35268 15.6718C5.91504 16.1094 5.20549 16.1094 4.76803 15.6718C4.33058 15.2343 4.33058 14.5249 4.76803 14.0872L10.8556 8.00004L4.76825 1.91282C4.33079 1.47518 4.33079 0.765844 4.76825 0.328423C5.20571 -0.109425 5.91525 -0.109425 6.35289 0.328423L13.2326 7.20795C13.4512 7.42668 13.5604 7.7134 13.5604 8.00004Z" fill="currentColor"></path></svg>
   )
 }

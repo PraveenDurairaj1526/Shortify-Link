@@ -16,7 +16,6 @@ const About = ({containerClass}) => {
                 <div className='h-[350px] mx-auto  sm:h-auto sm:absolute right-[20px] top-[20px] '>
                     <Image src={aboutImage} width={300} alt='free url shortener' />
                 </div>
-               
             </div>
         </section>
     )
