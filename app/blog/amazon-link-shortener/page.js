@@ -70,12 +70,12 @@ const page = () => {
                             <p className="leading-relaxed mb-3 font-semibold">For example:</p>
                             <div className="bg-[#f5f5f5] rounded-2xl shadow p-6 space-y-4 text-gray-800 mb-4">
                                 <p className="font-medium break-all">
-                                    <span className="text-gray-500">Long Amazon URL:</span><br />
+                                    <span className="text-black font-bold">Long Amazon URL:</span><br />
                                     https://www.example.com/products/marketing-tools/new-updates-2025-launch?ref=linkedin_campaign
                                 </p>
 
                                 <p className="font-medium break-all">
-                                    <span className="text-gray-500">Short Amazon Link:</span><br />
+                                    <span className="text-black font-bold">Short Amazon Link:</span><br />
                                     https://shortify.link/abc1
                                 </p>
                             </div>
@@ -228,7 +228,7 @@ const page = () => {
                     </div>
                     <BlogTable content={tableData} />
                 </div>
-                <BlogCta content={ctaData} />
+                <BlogCta content={ctaData} containerStyle={'from-[#131921] to-[#232f3e]'} />
             </div>
         </>
     )

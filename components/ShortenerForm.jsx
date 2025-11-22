@@ -48,10 +48,10 @@ const ShortenerForm = () => {
 
     return (
         <div className="relative bg-[url(/banner-background.webp)] bg-cover bg-center py-16 sm:py-24 min-h-[600px]">
-            <div className="relative z-10 max-w-[1300px] mx-auto px-4 grid grid-cols-1  gap-8 items-center ">
-                <div className="text-black space-y-6 order-2 sm:order-1 text-center ">
+            <div className="relative z-10 max-w-[1300px] mx-auto px-4 grid grid-cols-1  gap-4 items-center ">
+                <div className="text-black space-y-6 order-2 md:order-1 text-center ">
                     <h1 className="text-[30px] sm:text-[44px] font-bold leading-tight hidden md:block">
-                        Free URL Shortener with{" "}
+                        Free Link Shortener with{" "}
                         <span className="bg-gradient-to-r from-[#066AE5] to-[#3da0ff] bg-clip-text text-transparent">
                             Click Tracking
                         </span>
@@ -64,9 +64,9 @@ const ShortenerForm = () => {
                     </p>
                 </div>
                 {/* RIGHT SIDE URL INPUT */}
-                <div className='order-1 sm:order-2 '>
+                <div className='order-1 md:order-2 '>
                     <h1 className="text-[30px] sm:text-[44px] font-bold leading-tight md:hidden mb-4">
-                        Free URL Shortener with{" "}
+                        Free Link Shortener with{" "}
                         <span className="bg-gradient-to-r from-[#066AE5] to-[#3da0ff] bg-clip-text text-transparent">
                             Click Tracking
                         </span>
@@ -88,9 +88,8 @@ const ShortenerForm = () => {
                                 onClick={handleSubmit}
                                 className="bg-[#066AE5] gap-2 flex items-center justify-center shrink-0 text-white font-medium p-[10px] sm:p-[12px_24px] rounded-full transition-all duration-300"
                             >
-                                <span className={'hidden sm:block'}>Shorten URL</span>
+                                <span>Shorten URL</span>
                                 {loading && <Loader />}
-                                <ArrowIcon className={'block sm:hidden'} />
                             </button>
                         </div>
                         {inputError && <p className='text-red-600 text-base mt-1'>{inputError}</p>}

@@ -7,7 +7,7 @@ import { RightArrowIcon } from '@/SvgIcons/getSvgIcons';
 
 const BlogBanner = ({ content }) => {
     return (
-        <div className='bg-[#a3e7d6] py-20 px-4 rounded-b-3xl' style={{ backgroundImage: `url(${aboutBgImage.src})` }}>
+        <div className='bg-[#a3e7d6] py-10 sm:py-20 px-4 rounded-b-3xl' style={{ backgroundImage: `url(${aboutBgImage.src})` }}>
             <div className="max-w-[1280px] mx-auto">
                 <h1 className="text-4xl font-bold text-gray-900 mb-4 leading-normal">{content?.title}</h1>
                 {content?.description && <p className="text-lg text-gray-600">{content?.description}</p>}

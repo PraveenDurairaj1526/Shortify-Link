@@ -186,7 +186,7 @@ const page = () => {
                     </div>
                     <BlogTable content={tableData} />
                 </div>
-                <BlogCta content={ctaData} />
+                <BlogCta content={ctaData} containerStyle={'from-[#1a73e8] to-[#20559b]'}/>
             </div>
         </>
     )
