@@ -25,7 +25,7 @@ export const getSiteData = {
         }
     ],
     howItWorksData: {
-        title: 'How It Works - Free URL Shortener',
+        title: 'How It Works - Free Link Shortener',
         subTitle: 'Follow these 3 simple steps to turn your long URLs into clean, shareable short links for free.',
         stepsData: [
             {
@@ -58,38 +58,38 @@ export const getSiteData = {
         title: 'Why Shortify Link Is the Best URL Shortener',
         featuresData: [
             {
-                title: "Easy and Fast URL Shortener",
+                title: "Easy & Fast Short Link Generator",
                 description:
-                    "Create short URLs and short links in seconds with Shortify Link, the best URL shortener online. Just paste your long link, and our free URL shortener instantly generates a clean, compact, and shareable link. Whether you need a LinkedIn short URL, Instagram short URL, or Amazon short URL, Shortify Link makes it easy to share anywhere.",
+                    "Create a short link URL in seconds using our free link shortener. Just paste your long URL and instantly get a clean, shorter link ready to share anywhere.",
                 Icon: FeatureIcon1
             },
             {
-                title: "Shorten Any URL",
+                title: "Shorten Any Long URL",
                 description:
-                    "No matter the length of your link, Shortify Link can efficiently shorten it. Perfect for social media, email, marketing campaigns, or messaging apps. Use our short URL service to make your links concise and easy to share.",
+                    "Shortify Link lets you turn any long link into a shorter link that’s easy to share on social media, email, or messages. Perfect for users who need a reliable short link generator.",
                 Icon: FeatureIcon2
             },
             {
-                title: "Safe and Reliable Links",
+                title: "Safe & Secure Short URLs",
                 description:
-                    "Your audience’s safety is our priority. All links created with Shortify Link are checked for spam, malware, and viruses. Unsafe links are automatically blocked, ensuring your short URLs are always safe and reliable.",
+                    "Every short link URL is checked for spam and unsafe pages. Our free link shortener keeps your shortened links safe, trusted, and reliable for your audience.",
                 Icon: FeatureIcon3
             },
             {
-                title: "Cross-Device Compatible",
+                title: "Works on All Devices",
                 description:
-                    "Shortify Link works seamlessly on smartphones, tablets, and desktops. Create, copy, and manage your short URLs anytime, anywhere. Whether it’s a LinkedIn short URL on your desktop or an Instagram short URL on your phone, Shortify Link ensures smooth performance across all devices.",
+                    "Use Shortify Link on mobile, tablet, or desktop. Create, copy, and manage your shorter links anywhere using our smooth and fast short link generator.",
                 Icon: FeatureIcon4
             },
             {
-                title: "URL Click Tracking & Analytics",
+                title: "Real-Time Click Tracking",
                 description:
-                    "Track every click on your short links in real time with Shortify Link. Whether it’s a LinkedIn short URL, Instagram short URL, or Amazon short URL, our free URL shortener records each visit and provides detailed analytics. Monitor engagement instantly and see how many times your short URLs are clicked. Make informed decisions for social media posts, marketing campaigns, or personal projects using accurate click tracking and performance insights.",
+                    "Track every click on your short link URL with real-time analytics. See performance instantly and use insights to improve your sharing and campaigns.",
                 Icon: FeatureIcon5
             }
         ]
-
-    },
+    }
+    ,
     faqData: {
         title: 'FAQ',
         subTitle: 'Everything you need to know about Shortify Link.',

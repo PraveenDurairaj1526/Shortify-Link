@@ -48,10 +48,10 @@ const ShortenerForm = () => {
 
     return (
         <div className="relative bg-[url(/banner-background.webp)] bg-cover bg-center py-16 sm:py-24 min-h-[600px]">
-            <div className="relative z-10 max-w-[1300px] mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-10 gap-y-0 items-center ">
-                <div className="text-black space-y-6 order-2 sm:order-1">
-                    <h1 className="text-[30px] sm:text-[44px] font-bold leading-tight hidden sm:block">
-                        Free URL Shortener with{" "}
+            <div className="relative z-10 max-w-[1300px] mx-auto px-4 grid grid-cols-1  gap-4 items-center ">
+                <div className="text-black space-y-6 order-2 md:order-1 text-center ">
+                    <h1 className="text-[30px] sm:text-[44px] font-bold leading-tight hidden md:block">
+                        Free Link Shortener with{" "}
                         <span className="bg-gradient-to-r from-[#066AE5] to-[#3da0ff] bg-clip-text text-transparent">
                             Click Tracking
                         </span>
@@ -62,24 +62,16 @@ const ShortenerForm = () => {
                         <span className="font-semibold"> LinkedIn short URLs, Instagram short URLs, Amazon short URLs, Google Maps short URLs</span>,
                         and more effortlessly.
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-                        <Link href="#howItWorks" className="text-[#3e8be8] font-medium py-3 px-6 rounded-full border border-[#3e8be8] bg-white shadow-sm text-center hover:bg-[#e4f1ff] transition-all">
-                            How it works
-                        </Link>
-                        <Link href="/track/search" className="bg-[#066AE5] text-white font-medium py-3 px-6 rounded-full shadow-md hover:bg-[#055ac6] transition-all text-center">
-                            Track URL
-                        </Link>
-                    </div>
                 </div>
                 {/* RIGHT SIDE URL INPUT */}
-                <div className='order-1 sm:order-2'>
-                    <h1 className="text-[30px] sm:text-[44px] font-bold leading-tight sm:hidden mb-4">
-                        Free URL Shortener with{" "}
+                <div className='order-1 md:order-2 '>
+                    <h1 className="text-[30px] sm:text-[44px] font-bold leading-tight md:hidden mb-4">
+                        Free Link Shortener with{" "}
                         <span className="bg-gradient-to-r from-[#066AE5] to-[#3da0ff] bg-clip-text text-transparent">
                             Click Tracking
                         </span>
                     </h1>
-                    <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-3 sm:p-7 shadow-lg border border-white/50 w-full ">
+                    <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-3 sm:p-7 shadow-lg border border-white/50 w-full md:max-w-[80%] mx-auto">
                         <label className="text-gray-800 font-semibold text-lg mb-3 text-left inline-block">
                             Shorten Your URL
                         </label>
@@ -96,9 +88,8 @@ const ShortenerForm = () => {
                                 onClick={handleSubmit}
                                 className="bg-[#066AE5] gap-2 flex items-center justify-center shrink-0 text-white font-medium p-[10px] sm:p-[12px_24px] rounded-full transition-all duration-300"
                             >
-                                <span className={'hidden sm:block'}>Shorten URL</span>
+                                <span>Shorten URL</span>
                                 {loading && <Loader />}
-                                <ArrowIcon className={'block sm:hidden'} />
                             </button>
                         </div>
                         {inputError && <p className='text-red-600 text-base mt-1'>{inputError}</p>}
