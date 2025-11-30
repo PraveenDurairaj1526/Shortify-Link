@@ -7,9 +7,9 @@ import BlogCta from '@/components/blog/BlogCta';
 import BlogTable from '@/components/blog/BlogTable';
 
 export const metadata = {
-    title: "Free LinkedIn URL Shortener to Boost Your Engagement",
+    title: "shorten LinkedIn URL to Boost Your Engagement",
     description: "Use our free LinkedIn URL shortener to create clean, professional, and trackable short links. Improve engagement, boost click-through rates, and monitor performance with advanced click tracking for all your LinkedIn posts and campaigns.",
-    keywords: ['short linkedin url', 'linkedin short url', 'how to shorten linkedin url', 'shorten linkedin url', 'create a short linkedin url', 'short url for linkedin', 'shorten linkedin url free', 'shorten url for linkedin post','short link url'],
+    keywords: ["how to shorten linkedin url​", "linkedin shorten url​", "shortened linkedin url​", "link shortener for linkedin", "url shortener linkedin", "shorten linkedin profile url", "how do i shorten my linkedin url", "linkedin link shortener"],
     authors: [{ name: "Shortify Link Blogs" }],
     robots: {
         index: true,
@@ -35,7 +35,7 @@ export const viewport = {
 const page = () => {
 
     const bannerData = {
-        title: 'Free LinkedIn URL Shortener to Boost Your Engagement',
+        title: 'shorten LinkedIn URL to Boost Your Engagement',
         description: 'A complete guide to understanding LinkedIn URL shorteners, their benefits, and how to use Shortifiy Link for tracking and optimization',
         ctaButtonText: 'Shorten LinkedIn URL ',
         ctaLink: '/'
@@ -44,7 +44,7 @@ const page = () => {
     const ctaData = {
         title: 'Shorten your LinkedIn URL using Shortifiy Link',
         description: 'Create clean, fast-loading, and trackable short URLs for your LinkedIn profiles, posts, and marketing campaigns to boost clicks and engagement.',
-        ctaButtonText: 'Shorten Long URL',
+        ctaButtonText: 'Shorten LinkedIn URL',
         ctaLink: '/'
     }
 

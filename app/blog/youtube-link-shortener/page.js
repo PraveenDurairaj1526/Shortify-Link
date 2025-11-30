@@ -5,7 +5,7 @@ import BlogCta from '@/components/blog/BlogCta';
 import BlogTable from '@/components/blog/BlogTable';
 
 export const metadata = {
-    title: "Free YouTube Link Shortener",
+    title: "YouTube Link Shortener",
     description: "Shorten YouTube links instantly with a free YouTube link shortener. Create clean, clickable, and trackable short URLs for YouTube videos, Shorts, and channels to boost engagement and improve sharing across all platforms.",
     keywords: ['youtube short link​', 'shorten youtube link​', 'youtube short links', 'youtube shorts link', 'youtube shorten link​', 'youtube shorts links​', 'short youtube link','shorten youtube links​'],
     authors: [{ name: "Shortify Link" }],
@@ -14,7 +14,7 @@ export const metadata = {
         follow: true,
     },
     openGraph: {
-        title: "Shortify Link | Free YouTube Link Shortener",
+        title: "Shortify Link | YouTube Link Shortener",
         description: "Shorten YouTube links instantly with a free YouTube link shortener. Create clean, clickable, and trackable short URLs for YouTube videos, Shorts, and channels to boost engagement and improve sharing across all platforms.",
         url: "https://www.shortifylink.in/blog/youtube-link-shortener",
         siteName: "Shortify Link",
@@ -34,7 +34,7 @@ export const viewport = {
 const page = () => {
 
     const bannerData = {
-        title: 'Free YouTube Link Shortener: The Complete Guide for 2025',
+        title: 'YouTube Link Shortener: The Complete Guide for 2025',
         description: 'Sharing YouTube links is essential for creators and marketers, but long URLs look messy and reduce engagement. A free YouTube link shortener helps you create clean, clickable, and professional links that boost clicks anywhere you share them.',
         ctaButtonText: 'Shorten YouTube Link',
         ctaLink: '/'

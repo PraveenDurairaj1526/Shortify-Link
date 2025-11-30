@@ -1,10 +1,10 @@
 import clsx from 'clsx';
 import React from 'react';
 
-const WhyChoose = ({ containerClass, content }) => {
+const WhyChoose = ({ containerClass, content,title }) => {
   return (
     <section className={clsx('max-w-[1180px] mx-auto px-4', containerClass)} id='service'>
-      <h2 className='text-[28px] sm:text-[36px] font-semibold mb-9 text-center'>{content?.title}</h2>
+      <h2 className='text-[28px] sm:text-[36px] font-semibold mb-9 text-center'>{title}</h2>
       <div className="grid lg:grid-cols-3 gap-8 w-full">
         {content?.featuresData?.map((item, key) => {
           const FeatureIcon = item?.Icon;

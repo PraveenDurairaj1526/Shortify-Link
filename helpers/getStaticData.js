@@ -55,7 +55,6 @@ export const getSiteData = {
         ]
     },
     featuresData: {
-        title: 'Why Shortify Link Is the Best URL Shortener',
         featuresData: [
             {
                 title: "Easy & Fast Short Link Generator",
@@ -167,8 +166,39 @@ export const getSiteData = {
                 description: "Send files, folders, or documents with simple, trackable links."
             }
         ]
+    },
+    linkedInHowItWorksData: {
+        title: 'How to shorten LinkedIn URL',
+        subTitle: 'Follow these 3 simple steps to turn your long LinkedIn URLs into clean, shareable shortened LinkedIn URL',
+       stepsData: [
+    {
+        id: 1,
+        label: "Step 1",
+        title: "Paste Your LinkedIn URL",
+        description:
+            "Copy your long profile or post link and paste it into the box to start the process to shorten LinkedIn URL instantly.",
+        icon: "🔗",
+    },
+    {
+        id: 2,
+        label: "Step 2",
+        title: "Shorten Your LinkedIn URL",
+        description:
+            "Click the “Shorten URL” button to quickly shorten LinkedIn URL and get a clean, professional short link.",
+        icon: "⚡",
+    },
+    {
+        id: 3,
+        label: "Step 3",
+        title: "Share Your Shortened LinkedIn Link",
+        description:
+            "Use your new short LinkedIn URL in posts, messages, resumes, or job applications. Track every click in real time.",
+        icon: "📊",
+    },
+]
 
-    }
+
+    },
 
 }
 

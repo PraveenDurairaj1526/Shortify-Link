@@ -20,8 +20,16 @@ export default async function RedirectPage({ params }) {
         await updateDoc(docRef, {
             clickCount: increment(1)
         });
-
-        redirect(data.originalUrl);
+        if (data?.verification == 'not-approved') {
+            return (
+                <div className="flex flex-col items-center justify-center min-h-screen">
+                      <h2 className="text-3xl font-semibold mb-2 text-red-500">Link Blocked</h2>
+                    <p>This link has been blocked by the admin because it violates our content guidelines. Please review our Privacy Policy for more details.</p>
+                </div>
+            )
+        } else {
+            redirect(data.originalUrl);
+        }
     } else {
         return (
             <div className="flex flex-col items-center justify-center min-h-screen">

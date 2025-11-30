@@ -8,9 +8,9 @@ import WhyChoose from "@/components/WhyChoose";
 import { getSiteData } from "@/helpers/getStaticData";
 
 export const metadata = {
-  title: "Free Link Shortener | Create Short Links  with Click Tracking - shortify Link",
-  description: "Shortify Link is a free link shortener that lets you create short links instantly, generate clean short link URLs, and track clicks in real time. Use our fast short link generator to make shorter links for social media, websites, and marketing campaigns with ease.",
-  keywords: ["short link url​","shorter link​","short link generator​","free link shortener"<"youtube short link","how to shorten linkedin url","how to shorten amazon links"],
+  title: "Free Link Shortener With Real-Time Click Tracking",
+  description: "Shortening a URL with Shortify Link is quick and easy. Copy your long link, paste it into the Shortify Link tool, and click “Shorten URL” Your clean, trackable link will be ready to share instantly.",
+  keywords: ["short link url​", "shorter link​", "short link generator​", "free link shortener", "youtube short link", "how to shorten linkedin url", "how to shorten amazon links", "url link shortener", "best url shortener", "website url shortener"],
   authors: [{ name: "Shortify Link" }],
   robots: {
     index: true,
@@ -39,12 +39,16 @@ export default function Home() {
   const { howItWorksData, featuresData, faqData, urlShortenerUseCases } = getSiteData
   return (
     <main>
-      <ShortenerForm />
+      <ShortenerForm
+        title={' Free Link Shortener With Real-Time'}
+        specialText={'Click Tracking'}
+        description={'Shortening a URL with Shortify Link is quick and easy. Copy your long link, paste it into the Shortify Link tool, and click “Shorten URL” Your clean, trackable link will be ready to share instantly.'}
+      />
       <About containerClass={'mt-10 sm:mt-20'} />
       <HowItWorks containerClass={'mt-10 sm:mt-20'} content={howItWorksData} />
-      <WhyChoose containerClass={'mt-10 sm:mt-20'} content={featuresData} />
+      <WhyChoose containerClass={'mt-10 sm:mt-20'} content={featuresData} title={'Why Shortify Link Is the Best Link Shortener'} />
       <Faq containerClass={'mt-10 sm:mt-20'} content={faqData} />
-      <HelpingPlatform containerClass={'mt-10 sm:mt-20'} content={urlShortenerUseCases}  />
+      <HelpingPlatform containerClass={'mt-10 sm:mt-20'} content={urlShortenerUseCases} />
     </main>
   );
 }
