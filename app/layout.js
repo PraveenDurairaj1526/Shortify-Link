@@ -16,6 +16,7 @@ export default function RootLayout({ children }) {
         <link rel="icon" type="image/png" sizes="192x192" href="/faviconmobile.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/faviconxl.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
+        <meta name="google-adsense-account" content="ca-pub-7619194920212341"></meta>
       </head>
       <body className={inter.className}>
         <Header />
