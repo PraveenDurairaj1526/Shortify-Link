@@ -1,8 +1,14 @@
 "use client";
 import React, { useState } from 'react';
 import { LinkIcon, OpenWebsiteIcon, SkeletonLoader } from '@/SvgIcons/getSvgIcons';
+import LinkTitle from './LinkTitle/LinkTitle';
+import EmailRemainder from './EmailRemainder/EmailRemainder';
+import { getSiteData } from "@/helpers/getStaticData";
+import WhatsappRemainder from './WhatsappRemainder/WhatsappRemainder';
+
 
 const TrackUrl = ({ data }) => {
+    const { emailRemainderData, whatsappRemainderData } = getSiteData
     const [copied, setCopied] = useState({
         shortUrl: false,
         trackingUrl: false
@@ -25,53 +31,99 @@ const TrackUrl = ({ data }) => {
         }
     };
     return (
-        <div className="bg-white rounded-xl shadow-sm border border-border-light p-3 sm:p-6 sm:p-8 word-break">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <div className="lg:col-span-2">
-                    <h2 className="text-xl font-semibold text-text-light mb-4">Link Details</h2>
-                    <div className="space-y-6">
-                        <div>
-                            <label className="text-sm font-medium text-text-secondary-light" >Short URL</label>
-                            <div className="flex flex-col sm:flex-row items-start sm:items-center mt-2 gap-4 bg-slate-50 rounded-lg p-3">
-                                {data?.shortUrl ? <a className="flex-grow text-[16px] sm:text-lg font-medium text-[#3e8be8] bg-transparent border-0 p-0 focus:ring-0" href={data?.shortUrl} >{data?.shortUrl}</a> : <SkeletonLoader containerStyle={'w-full h-[30px]'} />}
-                                <button onClick={() => handleCopy(data?.shortUrl, 'shortUrl')}
-                                    className="flex items-center justify-center gap-2 w-full sm:w-auto px-4 py-2 bg-[#3e8be8] text-white rounded-md transition-colors shrink-0">
-                                    <LinkIcon />
-                                    <span>{copied?.shortUrl ? 'Copied' : 'Copy'}</span>
-                                </button>
-                            </div>
-                        </div>
-                        <div>
-                            <label className="text-sm font-medium text-text-secondary-light" >Tracking URL</label>
-                            <div className="flex flex-col sm:flex-row items-start sm:items-center mt-2 gap-4 bg-slate-50 rounded-lg p-3">
-                                {data?.trackingUrl ? <a className="flex-grow text-[16px] sm:text-lg  font-medium text-[#3e8be8] bg-transparent border-0 p-0 focus:ring-0" href={data?.trackingUrl} >{data?.trackingUrl}</a> : <SkeletonLoader containerStyle={'w-full h-[30px]'} />}
-                                <button onClick={() => handleCopy(data?.trackingUrl, 'trackingUrl')}
-                                    className="flex items-center justify-center gap-2 w-full sm:w-auto px-4 py-2 bg-primary text-white rounded-md bg-[#3e8be8]  shrink-0">
-                                    <LinkIcon />
-                                    <span>{copied?.trackingUrl ? 'Copied' : 'Copy'}</span>
-                                </button>
-                            </div>
-                        </div>
-                        <div>
-                            <label className="text-sm font-medium text-text-secondary-light mb-2 inline-block">Original URL</label>
-                            {data?.originalUrl ?
-                                <a className="text-[#3e8be8] hover:underline truncate flex items-center flex-wrap gap-1 " href={data?.originalUrl} target="_blank">
-                                    {data?.originalUrl}
-                                    <div className='flex gap-2 items-center'>
-                                        <span>open</span>
-                                        <OpenWebsiteIcon />
-                                    </div>
+        <div className="bg-white rounded-xl shadow-sm border border-border-light word-break overflow-hidden">
+            <div className='flex items-center bg-[#3e8be8] p-3 sm:p-[12px_24px] gap-2 text-white flex-wrap'>
+                <label className="text-base font-semibold text-text-secondary-light" >Link Title</label>
+                <div>
+                    {data?.linkTitle ? <div className='text-base font-semibold p-[5px_12px] bg-white rounded-md text-black inline-block'>{data?.linkTitle}</div> : <LinkTitle id={data?.fb_id} loading={data?.linkTitle} />}</div>
+            </div>
+            <div className='p-3 sm:p-6'>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+                    {/* Short URL */}
+                    <div className="flex flex-col gap-2">
+                        <label className="text-sm font-medium">Short URL</label>
+                        <div className="flex items-center flex-col sm:flex-row bg-white border rounded-xl p-2 shadow-sm hover:shadow transition">
+                            {data?.shortUrl ? (
+                                <a
+                                    href={data.shortUrl}
+                                    target="_blank"
+                                    className="flex-grow text-blue-600 font-semibold text-[15px] truncate"
+                                >
+                                    {data.shortUrl}
                                 </a>
-                                : <SkeletonLoader containerStyle={'w-full h-[30px]'}  />}
+                            ) : (
+                                <SkeletonLoader containerStyle="w-full h-[30px]" />
+                            )}
+
+                            <button onClick={() => handleCopy(data?.shortUrl, "shortUrl")}
+                                className="flex items-center justify-center gap-1 px-3 py-1 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition shrink-0 w-full sm:w-auto "
+                            >
+                                <LinkIcon />
+                                <span>{copied?.shortUrl ? "Copied" : "Copy"}</span>
+                            </button>
                         </div>
                     </div>
+                    {/* Tracking URL */}
+                    <div className="flex flex-col gap-2">
+                        <label className="text-sm font-medium">Tracking URL</label>
+                        <div className="flex items-center flex-col sm:flex-row bg-white border rounded-xl p-2 shadow-sm hover:shadow transition">
+                            {data?.trackingUrl ? (
+                                <a
+                                    href={data.trackingUrl}
+                                    target="_blank"
+                                    className="flex-grow text-blue-600 font-semibold text-[15px] truncate"
+                                >
+                                    {data.trackingUrl}
+                                </a>
+                            ) : (
+                                <SkeletonLoader containerStyle="w-full h-[30px]" />
+                            )}
+
+                            <button
+                                onClick={() => handleCopy(data?.trackingUrl, "trackingUrl")}
+                                className="flex items-center justify-center gap-1 px-3 py-1 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition shrink-0 w-full sm:w-auto "
+                            >
+                                <LinkIcon />
+                                <span>{copied?.trackingUrl ? "Copied" : "Copy"}</span>
+                            </button>
+                        </div>
+                    </div>
+                    {/* Original URL */}
+                    <div className="col-span-1 lg:col-span-2 flex flex-col gap-2">
+                        <label className="text-sm font-medium">Original URL</label>
+
+                        {data?.originalUrl ? (
+                            <a
+                                href={data.originalUrl}
+                                target="_blank"
+                                className="flex items-center gap-2 p-3 bg-white border rounded-xl shadow-sm hover:shadow transition text-blue-600 font-medium break-all"
+                            >
+                                <span className="truncate flex-grow">{data.originalUrl}</span>
+
+                                <div className="flex items-center gap-2 text-sm text-blue-600 shrink-0">
+                                    <span>Open</span>
+                                    <OpenWebsiteIcon />
+                                </div>
+                            </a>
+                        ) : (
+                            <SkeletonLoader containerStyle="w-full h-[30px]" />
+                        )}
+                    </div>
                 </div>
+                <div className='my-4 border-b border-gray-400' />
+                <h2 className="text-base font-semibold text-text-light mb-2">Notification</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <EmailRemainder id={data?.fb_id} emailToggle={data?.emailRemainder} email={data?.email} staticData={emailRemainderData} />
+                    {/* <WhatsappRemainder id={data?.fb_id} emailToggle={data?.emailRemainder} email={data?.email} staticData={whatsappRemainderData} /> */}
+                </div>
+                <div className='my-4 border-b border-gray-400' />
                 <div>
-                    <h2 className="text-xl font-semibold text-text-light mb-4">Performance</h2>
-                    <div className="bg-slate-50  rounded-lg p-6 flex flex-col items-center justify-center text-center">
+                    <h2 className="text-base font-semibold text-text-light mb-2">Performance</h2>
+                    <div className="bg-[#f0f8ff] rounded-lg p-6 flex flex-col items-center justify-center text-center">
                         <h3 className="text-sm font-medium text-text-secondary-light">Total Clicks</h3>
-                        {data?.clickCount >= 0  ? <p className="text-5xl font-bold text-[#3e8be8] my-3">{data?.clickCount}</p> : <SkeletonLoader containerStyle={' h-[40px] w-[100px] my-3'} />}
-                        <div className="text-sm text-text-secondary-light flex flex-wrap gap-3">Created: {formattedDate||<SkeletonLoader containerStyle={'w-[100px]'} />} </ div>
+                        {data?.clickCount >= 0 ? <p className="text-5xl font-bold text-[#3e8be8] my-3">{data?.clickCount}</p> : <SkeletonLoader containerStyle={' h-[40px] w-[100px] my-3'} />}
+                        <div className="text-sm text-text-secondary-light flex flex-wrap gap-3">Created: {formattedDate || <SkeletonLoader containerStyle={'w-[100px]'} />} </ div>
                     </div>
                 </div>
             </div>
