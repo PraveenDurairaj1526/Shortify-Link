@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 import BlogBanner from '@/components/blog/BlogBanner';
-import BlogCta from '@/components/blog/BlogCta';
 import BlogTable from '@/components/blog/BlogTable';
 
 export const metadata = {
@@ -149,9 +148,8 @@ const page = () => {
                             <p className="leading-relaxed">If you want to shorten YouTube links instantly and track every click, Shortify Link is one of the fastest and most reliable tools.</p>
                         </section>
                     </div>
-                    <BlogTable content={tableData} />
+                    <BlogTable content={tableData} ctaData={ctaData} containerStyle={'from-[#ff0033] to-[#ae0b2b]'}/>
                 </div>
-                <BlogCta content={ctaData} containerStyle={'from-[#ff0033] to-[#ae0b2b]'} />
             </div>
         </>
     )

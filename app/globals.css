@@ -31,3 +31,22 @@ html {
     word-break: break-word;
   }
 }
+
+@keyframes redGlow {
+  0% {
+    background-position: 0% 50%;
+    box-shadow: 0 0 6px rgba(252, 10, 10, 0.35);
+  }
+  50% {
+    background-position: 100% 50%;
+    box-shadow: 0 0 10px rgba(252, 10, 10, 0.55);
+  }
+  100% {
+    background-position: 0% 50%;
+    box-shadow: 0 0 6px rgba(252, 10, 10, 0.35);
+  }
+}
+
+.animate-redGlow {
+  animation: redGlow 3.5s ease-in-out infinite;
+}

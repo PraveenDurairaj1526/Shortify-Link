@@ -3,7 +3,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import clickTrackingImage from '/public/clickTrackingImage.png';
 import BlogBanner from '@/components/blog/BlogBanner';
-import BlogCta from '@/components/blog/BlogCta';
 import BlogTable from '@/components/blog/BlogTable';
 
 export const metadata = {
@@ -226,9 +225,8 @@ const page = () => {
                             <p className="leading-relaxed">Whether you are an Amazon affiliate, content creator, small business, or someone who simply shares product recommendations, using a short link url will help you improve engagement and get better results. In 2025, when people scroll fast and have less time, short links can make a big difference.</p>
                         </section>
                     </div>
-                    <BlogTable content={tableData} />
+                    <BlogTable content={tableData} ctaData={ctaData} containerStyle={'from-[#131921] to-[#232f3e]'} />
                 </div>
-                <BlogCta content={ctaData} containerStyle={'from-[#131921] to-[#232f3e]'} />
             </div>
         </>
     )

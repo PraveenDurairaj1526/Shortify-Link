@@ -112,10 +112,16 @@ const TrackUrl = ({ data }) => {
                     </div>
                 </div>
                 <div className='my-4 border-b border-gray-400' />
-                <h2 className="text-base font-semibold text-text-light mb-2">Notification</h2>
+                <h2 className="flex items-center gap-2 text-base font-semibold text-text-light mb-2">
+                    Notification
+                    <span className="relative px-4 py-0.5 text-[10px] font-medium text-red-50 rounded-full bg-[linear-gradient(110deg,#5a0505,#fc0a0a,#5a0505)] bg-[length:200%_100%] animate-redGlow">
+                        New
+                    </span>
+                </h2>
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <EmailRemainder id={data?.fb_id} emailToggle={data?.emailRemainder} email={data?.email} staticData={emailRemainderData} />
-                    {/* <WhatsappRemainder id={data?.fb_id} emailToggle={data?.emailRemainder} email={data?.email} staticData={whatsappRemainderData} /> */}
+                    <WhatsappRemainder id={data?.fb_id} whatsappToggle={data?.whatsappRemainder} whatsapp={data?.whatsapp} staticData={whatsappRemainderData} />
                 </div>
                 <div className='my-4 border-b border-gray-400' />
                 <div>
