@@ -2,96 +2,196 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { db } from '@/lib/firebase.config';
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { collection, addDoc, serverTimestamp, query, where, getDocs } from "firebase/firestore";
 import { v4 as uuid4 } from "uuid";
-import { ArrowIcon, Loader } from '@/SvgIcons/getSvgIcons';
-import Link from 'next/link';
+import {  Loader } from '@/SvgIcons/getSvgIcons';
+import { useForm } from "react-hook-form";
 
-const ShortenerForm = ({title,specialText,description,inputLabel}) => {
-    const [url, setUrl] = useState("");
+const ShortenerForm = ({ title, specialText, description }) => {
     const [loading, setLoading] = useState(false)
-    const [inputError, setInputError] = useState('')
     const router = useRouter();
+    const {
+        register,
+        handleSubmit,
+        watch,
+        setError,
+        reset,
+        formState: { errors },
+    } = useForm({
+        defaultValues: {
+            url: "",
+            linkType: "auto",
+            customAlias: "",
+        },
+    });
+    const linkType = watch("linkType");
 
+    const onSubmit = async (data) => {
+        console.log(data, 'https://www.shortifylink.in/https://www.shortifylink.in/')
+        const trimUrl = data.url.trim();
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+        if (!trimUrl.startsWith("http://") && !trimUrl.startsWith("https://")) {
+            setError("url", {
+                type: "manual",
+                message: "URL must start with http:// or https://",
+            });
+            return;
+        }
 
-        if (!url) {
-            setInputError('Invalid URL. Please enter a proper URL starting with http:// or https://.')
-            return
-        };
+        const alias = data.linkType === "custom" ? data.customAlias.trim().toLowerCase() : "";
 
-        const trimUrl = url.trim();
+        const id = alias ? alias : uuid4().slice(0, 5);
 
-        if (trimUrl && trimUrl.startsWith('https') || trimUrl.startsWith('http')) {
-            setLoading(true)
-            const id = uuid4().slice(0, 5);
+        try {
+            setLoading(true);
+
+            if (alias) {
+                if (!/^[a-z0-9-]{3,30}$/.test(alias)) {
+                    setError("customAlias", {
+                        type: "manual",
+                        message: "Only lowercase letters, numbers & hyphen allowed",
+                    });
+                    setLoading(false);
+                    return;
+                }
+
+                const q = query(
+                    collection(db, "manage_url"),
+                    where("id", "==", alias)
+                );
+                const snap = await getDocs(q);
+
+                if (!snap.empty) {
+                    setError("customAlias", {
+                        type: "manual",
+                        message: "This custom link is already taken",
+                    });
+                    setLoading(false);
+                    return;
+                }
+            }
+
             await addDoc(collection(db, "manage_url"), {
                 id,
                 originalUrl: trimUrl,
                 shortUrl: `${window.location.origin}/${id}`,
-                clickCount: 0,
                 trackingUrl: `${window.location.origin}/track/${id}`,
-                createAt: serverTimestamp()
+                clickCount: 0,
+                createAt: serverTimestamp(),
             });
-            setLoading(false)
-            setUrl("");
-            setInputError('')
+
+            reset();
             router.push(`/track/${id}`);
 
-        } else {
-            setInputError('Invalid URL. Please enter a proper URL starting with http:// or https://.')
+        } catch (err) {
+            console.log(err, 'yy')
+            setError("url", {
+                type: "manual",
+                message: "Something went wrong. Try again.",
+            });
+        } finally {
+            setLoading(false);
         }
-    }
-
+    };
 
     return (
-        <div className="relative bg-[url(/banner-background.webp)] bg-cover bg-center py-16 sm:py-24 min-h-[600px]">
+        <div className="relative bg-[url(/banner-background.webp)] bg-cover bg-center py-16 sm:py-24 min-h-[600px] px-4 flex gap-5 flex-col-reverse md:flex-col ">
             <div className="relative z-10 max-w-[1300px] mx-auto px-4 grid grid-cols-1  gap-4 items-center ">
                 <div className="text-black space-y-6 order-2 md:order-1 text-center ">
-                    <h1 className="text-[30px] sm:text-[44px] font-bold leading-tight hidden md:block">
-                       {title}{" "}
+                    <h1 className="text-[30px] sm:text-[44px] font-bold leading-tight">
+                        {title}{" "}
                         <span className="bg-gradient-to-r from-[#066AE5] to-[#3da0ff] bg-clip-text text-transparent">
-                          {specialText}
+                            {specialText}
                         </span>
                     </h1>
                     <p className="text-black text-base sm:text-lg leading-relaxed">{description}</p>
                 </div>
-                {/* RIGHT SIDE URL INPUT */}
-                <div className='order-1 md:order-2 '>
-                    <h1 className="text-[30px] sm:text-[44px] font-bold leading-tight md:hidden mb-4">
-                        Free Link Shortener with{" "}
-                        <span className="bg-gradient-to-r from-[#066AE5] to-[#3da0ff] bg-clip-text text-transparent">
-                            Click Tracking
-                        </span>
-                    </h1>
-                    <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-3 sm:p-7 shadow-lg border border-white/50 w-full md:max-w-[80%] mx-auto">
-                        <label className="text-gray-800 font-semibold text-lg mb-3 text-left inline-block">
-                           {inputLabel ?? 'Shorten Your URL' }
-                        </label>
-                        <div className="flex justify-between gap-2 bg-white rounded-[30px] p-[2px]  w-full border-2 border-[#3e8be8]">
+            </div>
+            <form
+                onSubmit={handleSubmit(onSubmit)}
+                className="w-full max-w-2xl mx-auto rounded-2xl bg-gradient-to-br from-blue-50 to-white p-6 space-y-5 shadow-md"
+            >
+                <div>
+                    <p className="text-sm font-semibold text-gray-700 mb-2">Link type</p>
+
+                    <div className="flex flex-wrap gap-3">
+                        <label className="bg-white flex items-center gap-2 px-4 py-2 rounded-full border border-blue-200 cursor-pointer text-sm">
                             <input
-                                type="url"
-                                value={url}
-                                placeholder="Enter your long URL"
-                                className="w-full ps-[20px] focus:outline-none focus:ring-0 rounded-[30px]"
-                                onChange={(e) => setUrl(e.target.value)}
+                                type="radio"
+                                value="auto"
+                                {...register("linkType")}
+                                className="accent-blue-600 w-4 h-4"
                             />
-                            <button
-                                aria-label="Shorten link"
-                                onClick={handleSubmit}
-                                className="bg-[#066AE5] gap-2 flex items-center justify-center shrink-0 text-white font-medium p-[10px] sm:p-[12px_24px] rounded-full transition-all duration-300"
-                            >
-                                <span>Shorten URL</span>
-                                {loading && <Loader />}
-                            </button>
-                        </div>
-                        {inputError && <p className='text-red-600 text-base mt-1'>{inputError}</p>}
+                            Auto generate
+                        </label>
+
+                        <label className="bg-white flex items-center gap-2 px-4 py-2 rounded-full border border-blue-200 cursor-pointer text-sm">
+                            <input
+                                type="radio"
+                                value="custom"
+                                {...register("linkType")}
+                                className="accent-blue-600 w-4 h-4"
+                            />
+                            Custom link
+                        </label>
                     </div>
                 </div>
 
-            </div>
+                <div>
+                    <label className="text-sm font-semibold text-gray-700 mb-1 block">
+                        Shorten Your URL
+                    </label>
+
+                    <input
+                        type="url"
+                        placeholder="https://example.com/page"
+                        {...register("url", {
+                            required: "URL is required",
+                        })}
+                        className="w-full px-4 py-3 rounded-xl border border-blue-200 focus:outline-none focus:border-blue-500"
+                    />
+
+                    {errors.url && (
+                        <p className="text-red-600 text-sm mt-1">{errors.url.message}</p>
+                    )}
+                </div>
+
+                {linkType === "custom" && (
+                    <div>
+                        <label className="text-sm font-semibold text-gray-700 mb-1 block">
+                            Custom link
+                        </label>
+
+                        <div className="flex items-center rounded-xl border border-blue-200 overflow-hidden">
+                            <span className="px-3 py-3 text-blue-600 bg-blue-50 whitespace-nowrap">
+                                shortifylink.in/
+                            </span>
+
+                            <input
+                                type="text"
+                                placeholder="my-offer"
+                                {...register("customAlias")}
+                                className="flex-1 px-3 py-3 focus:outline-none"
+                            />
+                        </div>
+
+                        {errors.customAlias && (
+                            <p className="text-red-600 text-sm mt-1">
+                                {errors.customAlias.message}
+                            </p>
+                        )}
+                    </div>
+                )}
+                <button
+                    type="submit"
+                    disabled={loading}
+                    className=" flex justify-center gap-3 w-full bg-blue-600 text-white py-3 rounded-full font-medium transition disabled:opacity-60"
+                >
+                    Shorten URL
+                    {loading && <Loader /> }
+                </button>
+            </form>
+
         </div>
 
     );

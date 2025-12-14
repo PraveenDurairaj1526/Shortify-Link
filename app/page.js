@@ -8,8 +8,8 @@ import WhyChoose from "@/components/WhyChoose";
 import { getSiteData } from "@/helpers/getStaticData";
 
 export const metadata = {
-  title: "Free Link Shortener With Real-Time Click Tracking",
-  description: "Shortening a URL with Shortify Link is quick and easy. Copy your long link, paste it into the Shortify Link tool, and click “Shorten URL” Your clean, trackable link will be ready to share instantly.",
+  title: "Free Link Shortener with Custom URLs & Click Tracking",
+  description: "Shortening a URL with Shortify Link is fast and flexible. Paste your long link, choose an auto-generated short URL or create your own custom link, and click “Shorten URL.” Your branded, trackable link is ready instantly, with real-time click tracking to help you monitor performance as it happens.",
   keywords: ["short link url​", "shorter link​", "short link generator​", "free link shortener", "youtube short link", "how to shorten linkedin url", "how to shorten amazon links", "url link shortener", "best url shortener", "website url shortener"],
   authors: [{ name: "Shortify Link" }],
   robots: {
@@ -40,9 +40,9 @@ export default function Home() {
   return (
     <main>
       <ShortenerForm
-        title={' Free Link Shortener With Real-Time'}
-        specialText={'Click Tracking'}
-        description={'Shortening a URL with Shortify Link is quick and easy. Copy your long link, paste it into the Shortify Link tool, and click “Shorten URL” Your clean, trackable link will be ready to share instantly.'}
+        title={'Free Link Shortener with'}
+        specialText={'Custom URLs & Click Tracking'}
+        description={"Shortening a URL with Shortify Link is fast and flexible. Paste your long link, choose an auto-generated short URL or create your own custom link, and click “Shorten URL.” Your branded, trackable link is ready instantly, with real-time click tracking to help you monitor performance as it happens."}
       />
       <About containerClass={'mt-10 sm:mt-20'} />
       <HowItWorks containerClass={'mt-10 sm:mt-20'} content={howItWorksData} />

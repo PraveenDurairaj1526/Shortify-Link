@@ -34,7 +34,7 @@ const WhatsappRemainder = ({ id, whatsappToggle, whatsapp, staticData }) => {
 
     const handleWhatsappRemainder = async (id, value) => {
         try {
-            const docRef = doc(db, "manage__test_url", id);
+            const docRef = doc(db, "manage_url", id);
 
             await updateDoc(docRef, {
                 whatsapp: value,
