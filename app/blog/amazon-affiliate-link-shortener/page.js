@@ -6,65 +6,78 @@ import BlogBanner from '@/components/blog/BlogBanner';
 import BlogTable from '@/components/blog/BlogTable';
 
 export const metadata = {
-    title: "Amazon Link Shortener – Free Tool to Shorten Amazon Affiliate Links 2026",
-    description: "Create clean, simple, and trackable Amazon short links in seconds. Learn how to shorten Amazon links using a fast, free tool to boost clicks, improve sharing, and make every short link URL more user-friendly",
-    keywords: ['amazon short link', 'shorten amazon links', 'amazon short links', 'how to shorten amazon links', 'short amazon link', 'shorten amazon link', 'short link url'],
-    authors: [{ name: "Shortify Link" }],
-    robots: {
-        index: true,
-        follow: true,
-    },
+    title: "Amazon Link Shortener – Custom Links, Tracking & Notifications",
+    description:
+        "Use Shortify Link to shorten Amazon affiliate links, create custom short URLs, add link titles, track clicks, and receive email & WhatsApp notifications in real time.",
+    keywords: [
+        "amazon link shortener",
+        "amazon affiliate link shortener",
+        "custom amazon short link",
+        "amazon link title",
+        "amazon click notification",
+        "whatsapp amazon affiliate notification",
+        "shorten amazon affiliate links"
+    ],
+    authors: [{ name: "Shortify Link Blogs" }],
+    robots: { index: true, follow: true },
     openGraph: {
-        title: "Shortify Link | Free Amazon Short Link Tool",
-        description: "Create clean, simple, and trackable Amazon short links in seconds. Learn how to shorten Amazon links using a fast, free tool to boost clicks, improve sharing, and make every short link URL more user-friendly",
-        url: "https://www.shortifylink.in/blog/amazon-link-shortener",
-        siteName: "Shortify Link",
+        title: "Free Amazon Link Shortener for Affiliate Marketing",
+        description:
+            "Use our free Amazon link shortener to create clean, professional, and trackable short links. Boost click-through rates, build trust, and monitor performance with real-time click tracking for Amazon affiliate links.",
+        url: "https://www.shortifylink.in/blog/amazon-affiliate-link-shortener",
         images: [
             {
-                url: "https://www.shortifylink.in/blogAmazonOgImage.png",
-                alt: "Shortify Link - Free Amazon Short Link Tool",
+                url: "https://www.shortifylink.in/blogAmazonAffliateOgImage.png",
+                alt: "Shortify Link - Amazon Link Shortener",
             },
         ],
     },
+
 };
+
 export const viewport = {
     width: "device-width",
     initialScale: 1,
 };
 
 const page = () => {
-
     const bannerData = {
-        title: 'Amazon Link Shortener – Free Tool to Shorten Amazon Affiliate Links 2026',
-        description: 'Create clean, simple, and trackable Amazon short links in seconds. Learn how to shorten Amazon links using a fast, free tool to boost clicks, improve sharing, and make every short link URL more user-friendly',
-        ctaButtonText: 'Short Your URL Now',
-        ctaLink: '/'
-    }
+        title: 'Amazon Link Shortener for Affiliate Marketing',
+        description:
+            'Shorten Amazon affiliate links, create clean amzn.eu-style URLs, add custom links, track clicks, and receive instant notifications using Shortify Link.',
+        ctaButtonText: 'Shorten Amazon Link',
+        ctaLink: '/',
+    };
 
     const ctaData = {
-        title: 'Shorten your Amazon Link using Shortify Link',
-        description: 'Create a clean, simple short link for products, deals, and affiliate links',
-        ctaButtonText: 'Short Amazon URL',
-        ctaLink: '/'
-    }
+        title: 'Boost Your Amazon Affiliate Earnings',
+        description:
+            'Custom links, link titles, real-time click tracking, and email & WhatsApp notifications — all in one tool.',
+        ctaButtonText: 'Shorten Amazon Link',
+        ctaLink: '/',
+    };
 
     const tableData = [
-        'What Is a Free Amazon Link Shortener?',
-        'Why Use an Amazon Link Shortener?',
-        'How Shortify Link Helps You Shorten Amazon URLs for Free',
-        'How to Create a Short Amazon URL Using Shortify Link',
-        'Why Amazon Affiliates Should Use Short Links',
-        'Conclusion'
-    ]
+        'What Is an Amazon Link Shortener?',
+        'Benefits of Using an Amazon Affiliate Link Shortener',
+        'How Shortify Link Helps You Shorten Amazon Link for Free',
+        'Advanced Features in Shortify Link',
+        'Conclusion',
+    ];
 
     return (
         <>
             <BlogBanner content={bannerData} />
+
             <div className="max-w-[1280px] mx-auto py-10 px-5">
-                <div className='flex gap-8 relative items-start flex-wrap-reverse md:flex-nowrap'>
-                    <div className='content'>
+                <div className="flex gap-8 relative items-start flex-wrap-reverse md:flex-nowrap">
+                    <div className="content">
+
+                        {/* Section 1 */}
                         <section id="heading1" className="mb-12">
-                            <h2 className="text-3xl font-semibold mb-4">What Is a Free Amazon Link Shortener?</h2>
+                            <h2 className="text-3xl font-semibold mb-4">
+                                What Is an Amazon Link Shortener?
+                            </h2>
                             <p className="leading-relaxed mb-2">A free Amazon link shortener is an online tool that helps you convert a long Amazon URL into a short amazon link.</p>
                             <p className="leading-relaxed mb-3 font-semibold">For example:</p>
                             <div className="bg-[#f5f5f5] rounded-2xl shadow p-6 space-y-4 text-gray-800 mb-4">
@@ -79,10 +92,11 @@ const page = () => {
                                 </p>
                             </div>
                             <p className="leading-relaxed mb-2">The short version is clean, simple, and user-friendly. People understand it easily, and it looks much better when shared anywhere online.</p>
-
                         </section>
+
+                        {/* Section 2 */}
                         <section id="heading2" className="mb-12">
-                            <h2 className="text-3xl font-semibold mb-4">Why Use Amazon Link Shortener?</h2>
+                            <h2 className="text-3xl font-semibold mb-4">Benefits of Using an Amazon Affiliate Link Shortener</h2>
                             <p className="leading-relaxed mb-2 font-bold text-[18px]">Short and Professional Links</p>
                             <p className="leading-relaxed mb-4">
                                 Amazon URLs are usually long, messy, and full of random characters that look confusing.
@@ -139,6 +153,7 @@ const page = () => {
                             </p>
                         </section>
 
+                        {/* Section 3 */}
                         <section id="heading3" className="mb-12">
                             <h2 className="text-3xl font-semibold mb-4">How Shortify Link Helps You Shorten Amazon Link for Free</h2>
                             <p className="leading-relaxed mb-2">
@@ -183,53 +198,112 @@ const page = () => {
                             </p>
                         </section>
 
-                        <section id="heading4" className="mb-12">
-                            <h2 className="text-3xl font-semibold mb-4">How to Use the Amazon URL Shortener with Shortify Link</h2>
-                            <ol className="list-decimal pl-6 space-y-2">
-                                <li>Go to the <Link href={'/'} className='text-blue-600 hover:underline'>Shortifiy Link</Link> platform.</li>
-                                <li>Paste your long Amazon URL into the input box.</li>
-                                <li>Click the <strong>Shorten URL</strong> button.</li>
-                                <li>Copy your newly generated short link.</li>
-                                <li>Use the short link in WhatsApp, Instagram, YouTube, blogs, emails, or Amazon affiliate promotions.</li>
-                            </ol>
+                        {/* Section 5 – New Features */}
+                        <section id="heading4" className="mb-14">
+                            <h2 className="text-3xl font-semibold mb-3">
+                                Advanced Features in Shortify Link
+                            </h2>
+
+                            <p className="text-gray-600 mb-10 max-w-3xl">
+                                Shortify Link offers advanced features designed specifically for Amazon
+                                affiliates and digital marketers who want more control, visibility, and
+                                performance from their links.
+                            </p>
+
+                            <div className="grid gap-6 sm:grid-cols-2">
+
+                                {/* Custom Short Links */}
+                                <div className="rounded-2xl bg-blue-50 p-6">
+                                    <div className="flex items-center gap-3 mb-3">
+                                        <div className="h-10 w-10 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 font-semibold">
+                                            🔗
+                                        </div>
+                                        <h3 className="text-lg font-semibold">Custom Short Links</h3>
+                                    </div>
+
+                                    <p className="text-gray-700 leading-relaxed">
+                                        Create meaningful and branded short URLs instead of random strings.
+                                        Custom links are easier to remember and help improve brand recognition
+                                        across platforms.
+                                    </p>
+                                </div>
+
+                                {/* Link Title Feature */}
+                                <div className="rounded-2xl bg-blue-50 p-6">
+                                    <div className="flex items-center gap-3 mb-3">
+                                        <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-semibold">
+                                            🏷️
+                                        </div>
+                                        <h3 className="text-lg font-semibold">Link Title Feature</h3>
+                                    </div>
+
+                                    <p className="text-gray-700 leading-relaxed">
+                                        Assign titles to your Amazon short links so you can easily identify
+                                        which product or campaign each link belongs to.
+                                    </p>
+                                </div>
+
+                                {/* Email Notifications */}
+                                <div className="rounded-2xl bg-blue-50 p-6">
+                                    <div className="flex items-center gap-3 mb-3">
+                                        <div className="h-10 w-10 rounded-full bg-green-100 flex items-center justify-center text-green-600 font-semibold">
+                                            📧
+                                        </div>
+                                        <h3 className="text-lg font-semibold">Email Notifications</h3>
+                                    </div>
+
+                                    <p className="text-gray-700 leading-relaxed">
+                                        Receive instant email notifications whenever someone clicks your Amazon
+                                        affiliate link, keeping you informed in real time.
+                                    </p>
+                                </div>
+
+                                {/* WhatsApp Notifications */}
+                                <div className="rounded-2xl bg-blue-50 p-6">
+                                    <div className="flex items-center gap-3 mb-3">
+                                        <div className="h-10 w-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 font-semibold">
+                                            💬
+                                        </div>
+                                        <h3 className="text-lg font-semibold">WhatsApp Notifications</h3>
+                                    </div>
+
+                                    <p className="text-gray-700 leading-relaxed">
+                                        Get click alerts directly on WhatsApp, making it easy to monitor
+                                        performance without opening a dashboard.
+                                    </p>
+                                </div>
+
+                            </div>
                         </section>
 
-                        <section id="heading5" className="mb-12">
-                            <h2 className="text-3xl font-semibold mb-4">Why Amazon Affiliates Should Use Short Links</h2>
-                            <p className='leading-relaxed mb-4'>Amazon affiliates can benefit a lot from using amazon short links. Short links look cleaner, more professional, and help you get more clicks. When you shorten Amazon links, you make them easier for people to trust and tap, which means more chances to earn commissions.</p>
 
-                            <p className="leading-relaxed mb-3 font-bold text-[18px]">More Clicks and More Earnings</p>
-                            <p className="leading-relaxed mb-4">
-                                Long Amazon URLs look confusing and unprofessional. But a short amazon link looks neat and simple. People are more likely to click clean links, which increases your click-through rate. More clicks mean more chances of earning through Amazon affiliate sales.
-                            </p>
-
-                            <p className="leading-relaxed mb-3 font-bold text-[18px]">Perfect for Social Media</p>
-                            <p className="leading-relaxed mb-4">
-                                As an affiliate, you probably share links on Instagram, YouTube, Facebook, WhatsApp, and Telegram. These platforms work best with short content. Using amazon short links keeps your posts tidy and avoids clutter. This also improves visibility in captions, bios, and comments.
-                            </p>
-
-                            <p className="leading-relaxed mb-3 font-bold text-[18px]">Builds Trust With Users</p>
-                            <p className="leading-relaxed mb-4">
-                                Many people avoid clicking long, random-looking URLs. A short link url feels safe and professional. When you shorten amazon link, it gives your audience more confidence to tap the link and check the product.
-                            </p>
-
-                            <p className="leading-relaxed mb-3 font-bold text-[18px]">Helps You Stay Organized</p>
-                            <p className="leading-relaxed">
-                                If you share many Amazon affiliate links, short links make it much easier to manage them. You can organize your amazon short links by category, product, or campaign, making your workflow smoother.
-                            </p>
-                        </section>
-
+                        {/* Section 6 */}
                         <section id="heading5" className="mt-12">
                             <h2 className="text-3xl font-semibold mb-4">Conclusion</h2>
-                            <p className="leading-relaxed mb-4">A free Amazon link shortener makes sharing Amazon product links much easier. Long URLs look messy and unprofessional, but amazon short links are clean, easy to read, and more likely to get clicks. Tools like Shortify Link let you shorten amazon links in seconds and share them anywhere you want.</p>
-                            <p className="leading-relaxed">Whether you are an Amazon affiliate, content creator, small business, or someone who simply shares product recommendations, using a short link url will help you improve engagement and get better results. In 2025, when people scroll fast and have less time, short links can make a big difference.</p>
+                            <p className="leading-relaxed mb-4">
+                                Using an Amazon link shortener is essential for modern affiliate
+                                marketing. Short links improve trust, increase clicks, and make
+                                sharing easier across all platforms.
+                            </p>
+                            <p className="leading-relaxed">
+                                With Shortify Link, you get more than just shortened URLs.
+                                Custom links, link titles, click tracking, and instant email &
+                                WhatsApp notifications give you complete control over your
+                                affiliate marketing efforts.
+                            </p>
                         </section>
+
                     </div>
-                    <BlogTable content={tableData} ctaData={ctaData} containerStyle={'from-[#131921] to-[#232f3e]'}  stickyBottomCta />
+                    <BlogTable
+                        content={tableData}
+                        ctaData={ctaData}
+                        containerStyle="from-[#ff9900] to-[#ff6600]"
+                        stickyBottomCta
+                    />
                 </div>
             </div>
         </>
-    )
-}
+    );
+};
 
-export default page
+export default page;

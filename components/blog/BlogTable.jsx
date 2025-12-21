@@ -1,7 +1,8 @@
 import React from 'react';
 import BlogCta from './BlogCta';
+import StickyCTA from './StickyCta';
 
-const BlogTable = ({ content, ctaData, containerStyle }) => {
+const BlogTable = ({ content, ctaData, containerStyle,stickyBottomCta }) => {
     return (
         <section className="  w-full md:w-[400px] shrink-0 md:sticky top-0">
             <div className='bg-white shadow-md p-6 rounded-xl'>
@@ -13,6 +14,7 @@ const BlogTable = ({ content, ctaData, containerStyle }) => {
                 </ul>
             </div>
             {ctaData && <BlogCta content={ctaData} containerStyle={containerStyle} />}
+            {stickyBottomCta && <StickyCTA  content={ctaData}  containerStyle={containerStyle} />}
         </section>
     )
 }

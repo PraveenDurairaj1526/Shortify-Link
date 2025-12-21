@@ -144,7 +144,7 @@ const ShortenerForm = ({ title, specialText, description }) => {
 
                     <input
                         type="url"
-                        placeholder="https://example.com/page"
+                        placeholder="Paste your long URL here"
                         {...register("url", {
                             required: "URL is required",
                         })}
@@ -169,7 +169,7 @@ const ShortenerForm = ({ title, specialText, description }) => {
 
                             <input
                                 type="text"
-                                placeholder="my-offer"
+                                placeholder="custom-name"
                                 {...register("customAlias")}
                                 className="flex-1 px-3 py-3 focus:outline-none"
                             />

@@ -43,12 +43,12 @@ const TrackUrl = ({ data }) => {
                     {/* Short URL */}
                     <div className="flex flex-col gap-2">
                         <label className="text-sm font-medium">Short URL</label>
-                        <div className="flex items-center flex-col sm:flex-row bg-white border rounded-xl p-2 shadow-sm hover:shadow transition">
+                        <div className="flex items-center flex-col sm:flex-row bg-white border rounded-xl p-2 shadow-sm hover:shadow transition gap-2">
                             {data?.shortUrl ? (
                                 <a
                                     href={data.shortUrl}
                                     target="_blank"
-                                    className="flex-grow text-blue-600 font-semibold text-[15px] truncate"
+                                    className="flex-grow text-blue-600 font-semibold text-[15px] sm:truncate"
                                 >
                                     {data.shortUrl}
                                 </a>
@@ -67,12 +67,12 @@ const TrackUrl = ({ data }) => {
                     {/* Tracking URL */}
                     <div className="flex flex-col gap-2">
                         <label className="text-sm font-medium">Tracking URL</label>
-                        <div className="flex items-center flex-col sm:flex-row bg-white border rounded-xl p-2 shadow-sm hover:shadow transition">
+                        <div className="flex items-center flex-col sm:flex-row bg-white border rounded-xl p-2 shadow-sm hover:shadow transition gap-2">
                             {data?.trackingUrl ? (
                                 <a
                                     href={data.trackingUrl}
                                     target="_blank"
-                                    className="flex-grow text-blue-600 font-semibold text-[15px] truncate"
+                                    className="flex-grow text-blue-600 font-semibold text-[15px] sm:truncate"
                                 >
                                     {data.trackingUrl}
                                 </a>

@@ -148,7 +148,7 @@ const page = () => {
                             <p className="leading-relaxed">If you want to shorten YouTube links instantly and track every click, Shortify Link is one of the fastest and most reliable tools.</p>
                         </section>
                     </div>
-                    <BlogTable content={tableData} ctaData={ctaData} containerStyle={'from-[#ff0033] to-[#ae0b2b]'}/>
+                    <BlogTable content={tableData} ctaData={ctaData} containerStyle={'from-[#ff0033] to-[#ae0b2b]'} stickyBottomCta/>
                 </div>
             </div>
         </>

@@ -183,7 +183,7 @@ const page = () => {
                             <p className="leading-relaxed">In 2025, people scroll fast and there is a lot of competition. Using short links makes your posts easier to read, easier to share, and more effective. Whether you are a creator, marketer, or business owner, shortening your URLs can help you get more reach, more engagement, and better results on LinkedIn.</p>
                         </section>
                     </div>
-                    <BlogTable content={tableData} ctaData={ctaData} containerStyle={'from-[#1a73e8] to-[#20559b]'} />
+                    <BlogTable content={tableData} ctaData={ctaData} containerStyle={'from-[#1a73e8] to-[#20559b]'} stickyBottomCta />
                 </div>
             </div>
         </>
