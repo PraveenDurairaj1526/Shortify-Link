@@ -26,6 +26,26 @@ export const getSiteData = {
             link: '/privacy-policy'
         }
     ],
+
+    gstNavData: [
+        {
+            text: 'How to use',
+            link: '/gst-calculator/#howToUseGst'
+        },
+        {
+            text: 'Reverse GST',
+            link: '/gst-calculator/#reverseGST'
+        },
+        {
+            text: 'Why use GSt',
+            link: '/gst-calculator/#whyUseGst'
+        },
+        {
+            text: 'Privacy Policy',
+            link: '/privacy-policy'
+        }
+    ],
+
     howItWorksData: {
         title: 'How It Works - Free Link Shortener',
         subTitle: 'Follow these 3 simple steps to turn your long URLs into clean, shareable short links for free.',

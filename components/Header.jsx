@@ -3,15 +3,19 @@ import React, { useState } from 'react';
 import { getSiteData } from '@/helpers/getStaticData';
 import Link from 'next/link';
 import { CloseIcon, MenuIcon } from '@/SvgIcons/getSvgIcons';
+import { usePathname } from 'next/navigation';
 
 const Header = () => {
-    const { navData } = getSiteData
+        const pathname = usePathname();
+    const { navData,gstNavData } = getSiteData
     const [show, setShow] = useState(false)
+    const activeNav =
+        pathname === "/gst-calculator" ? gstNavData : navData;
     return (
         <header className='text-center p-[14px] bg-gray-900 flex justify-between'>
             <Link className="text-2xl font-semibold text-white" href="/" > <span className="text-[#3e8be8]">Shortify</span> Link</Link>
             <nav className='items-center gap-8 hidden lg:flex'>
-                {navData?.map((item,key ) => {
+                {activeNav?.map((item,key ) => {
                     return (
                         <Link key={key} href={item?.link} className='text-gray-400 hover:text-white'>{item?.text}</Link>
                     )
@@ -29,7 +33,7 @@ const Header = () => {
                 <div className='flex justify-end w-full' onClick={() => setShow(!show)}>
                     <CloseIcon className={'text-white w-6 h-6'} />
                 </div>
-                {navData?.map((item,key) => {
+                {activeNav?.map((item,key) => {
                     return (
                         <Link key={key} href={item?.link} className='text-gray-400 hover:text-white' onClick={() => setShow(!show)}>{item?.text}</Link>
                     )
