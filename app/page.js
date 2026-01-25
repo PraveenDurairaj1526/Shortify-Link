@@ -8,7 +8,7 @@ import WhyChoose from "@/components/WhyChoose";
 import { getSiteData } from "@/helpers/getStaticData";
 
 export const metadata = {
-  title: "Free Link Shortener with Custom URLs & Click Tracking",
+  title: "Free Link Shortener with Custom URLs & Click Tracking – No Login Required",
   description: "Shortening a URL with Shortify Link is fast and flexible. Paste your long link, choose an auto-generated short URL or create your own custom link, and click “Shorten URL.” Your branded, trackable link is ready instantly, with real-time click tracking to help you monitor performance as it happens.",
   keywords: ["short link url​", "shorter link​", "short link generator​", "free link shortener", "youtube short link", "how to shorten linkedin url", "how to shorten amazon links", "url link shortener", "best url shortener", "website url shortener"],
   authors: [{ name: "Shortify Link" }],
@@ -17,7 +17,7 @@ export const metadata = {
     follow: true,
   },
   openGraph: {
-    title: "Shortify Link | Free URL Shortener with Click Tracking",
+    title: "Shortify Link | Free URL Shortener with Click Tracking – No Login Required",
     description: "Shortify Link is a free URL shortener that lets you shorten links instantly, create branded URLs, and track clicks in real time. Monitor link performance and share easily across social media, websites, and marketing campaigns.",
     url: "https://www.shortifylink.in/",
     siteName: "Shortify Link",

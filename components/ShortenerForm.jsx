@@ -4,7 +4,8 @@ import { useRouter } from 'next/navigation';
 import { db } from '@/lib/firebase.config';
 import { collection, addDoc, serverTimestamp, query, where, getDocs } from "firebase/firestore";
 import { v4 as uuid4 } from "uuid";
-import {  Loader } from '@/SvgIcons/getSvgIcons';
+import clsx from 'clsx';
+import { Loader } from '@/SvgIcons/getSvgIcons';
 import { useForm } from "react-hook-form";
 
 const ShortenerForm = ({ title, specialText, description }) => {
@@ -97,6 +98,13 @@ const ShortenerForm = ({ title, specialText, description }) => {
     return (
         <div className="relative bg-[url(/banner-background.webp)] bg-cover bg-center py-16 sm:py-24 min-h-[600px] px-4 flex gap-5 flex-col-reverse md:flex-col ">
             <div className="relative z-10 max-w-[1300px] mx-auto px-4 grid grid-cols-1  gap-4 items-center ">
+                <div className="flex justify-center">
+                    <span className="relative inline-flex items-center rounded-full px-6 py-2 text-sm font-semibold text-white bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 overflow-hidden">
+                        <span className="absolute -inset-6 rounded-full bg-[conic-gradient(from_0deg,transparent,rgba(255,255,255,0.5),transparent)] animate-spin blur-2xl"></span>
+                        <span className="absolute inset-0 rounded-full ring-1 ring-white/30"></span>
+                        <span className="relative z-10">No Login Required</span>
+                    </span>
+                </div>
                 <div className="text-black space-y-6 order-2 md:order-1 text-center ">
                     <h1 className="text-[30px] sm:text-[44px] font-bold leading-tight">
                         {title}{" "}
@@ -109,13 +117,13 @@ const ShortenerForm = ({ title, specialText, description }) => {
             </div>
             <form
                 onSubmit={handleSubmit(onSubmit)}
-                className="w-full max-w-2xl mx-auto rounded-2xl bg-gradient-to-br from-blue-50 to-white p-6 space-y-5 shadow-md"
+                className="w-full max-w-2xl mx-auto rounded-2xl bg-gradient-to-br from-blue-50 to-white p-4 sm:p-6 space-y-5 shadow-md"
             >
                 <div>
                     <p className="text-sm font-semibold text-gray-700 mb-2">Link type</p>
 
                     <div className="flex flex-wrap gap-3">
-                        <label className="bg-white flex items-center gap-2 px-4 py-2 rounded-full border border-blue-200 cursor-pointer text-sm">
+                        <label className={clsx("bg-white flex items-center gap-2 px-4 py-2 rounded-full border border-blue-200 cursor-pointer text-sm", linkType == 'auto' && 'shadow-lg')}>
                             <input
                                 type="radio"
                                 value="auto"
@@ -125,7 +133,7 @@ const ShortenerForm = ({ title, specialText, description }) => {
                             Auto generate
                         </label>
 
-                        <label className="bg-white flex items-center gap-2 px-4 py-2 rounded-full border border-blue-200 cursor-pointer text-sm">
+                        <label className={clsx("bg-white flex items-center gap-2 px-4 py-2 rounded-full border border-blue-200 cursor-pointer text-sm", linkType == 'custom' && 'shadow-lg')}>
                             <input
                                 type="radio"
                                 value="custom"
@@ -148,7 +156,7 @@ const ShortenerForm = ({ title, specialText, description }) => {
                         {...register("url", {
                             required: "URL is required",
                         })}
-                        className="w-full px-4 py-3 rounded-xl border border-blue-200 focus:outline-none focus:border-blue-500"
+                        className="w-full px-4 py-3 rounded-xl border text-sm border-blue-200 focus:outline-none focus:border-blue-500"
                     />
 
                     {errors.url && (
@@ -171,7 +179,7 @@ const ShortenerForm = ({ title, specialText, description }) => {
                                 type="text"
                                 placeholder="custom-name"
                                 {...register("customAlias")}
-                                className="flex-1 px-3 py-3 focus:outline-none"
+                                className="flex-1 px-3 py-3 focus:outline-none text-sm"
                             />
                         </div>
 
@@ -188,7 +196,7 @@ const ShortenerForm = ({ title, specialText, description }) => {
                     className=" flex justify-center gap-3 w-full bg-blue-600 text-white py-3 rounded-full font-medium transition disabled:opacity-60"
                 >
                     Shorten URL
-                    {loading && <Loader /> }
+                    {loading && <Loader />}
                 </button>
             </form>
 
