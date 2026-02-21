@@ -1,0 +1,1 @@
+export const DB_COLLECTION = 'manage_url'

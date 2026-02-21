@@ -3,10 +3,11 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from 'next/navigation';
 import Link from "next/link";
 import { db } from "@/lib/firebase.config";
-import { collection, doc, getDocs, query, where } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import { SearchIcon } from "@/SvgIcons/getSvgIcons";
 import TrackUrl from "@/components/TrackUrl";
 import { useLinkData } from "@/context/LinkDataProvider";
+import { DB_COLLECTION } from "@/site-config";
 
 
 
@@ -36,7 +37,7 @@ export default function TrackClicksPage({ params }) {
 
     useEffect(() => {
         const fetchData = async () => {
-            const q = query(collection(db, "manage_url"), where("id", "==", params.id));
+            const q = query(collection(db, DB_COLLECTION), where("id", "==", params.id));
             try {
                 const snapshot = await getDocs(q);
                 if (!snapshot.empty) {

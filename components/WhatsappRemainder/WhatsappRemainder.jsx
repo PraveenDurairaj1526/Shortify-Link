@@ -4,6 +4,7 @@ import { Switch, Dialog, DialogHeader, DialogBody, DialogFooter, Button, Input }
 import { doc, updateDoc } from 'firebase/firestore';
 import { useLinkData } from '@/context/LinkDataProvider';
 import { db } from '@/lib/firebase.config';
+import { DB_COLLECTION } from '@/site-config';
 import Image from 'next/image';
 
 const WhatsappRemainder = ({ id, whatsappToggle, whatsapp, staticData }) => {
@@ -34,7 +35,7 @@ const WhatsappRemainder = ({ id, whatsappToggle, whatsapp, staticData }) => {
 
     const handleWhatsappRemainder = async (id, value) => {
         try {
-            const docRef = doc(db, "manage_url", id);
+            const docRef = doc(db, DB_COLLECTION, id);
 
             await updateDoc(docRef, {
                 whatsapp: value,

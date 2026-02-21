@@ -5,6 +5,7 @@ import { Button, Dialog, DialogBody, DialogFooter, DialogHeader, Input } from '@
 import { doc, updateDoc } from 'firebase/firestore';
 import { useLinkData } from '@/context/LinkDataProvider';
 import { db } from '@/lib/firebase.config';
+import { DB_COLLECTION } from '@/site-config';
 
 
 
@@ -22,7 +23,7 @@ const LinkTitle = ({ id }) => {
 
     const handleAddTitle = async (id, value) => {
         try {
-            const docRef = doc(db, "manage_url", id);
+            const docRef = doc(db, DB_COLLECTION, id);
 
             await updateDoc(docRef, {
                 linkTitle: value,

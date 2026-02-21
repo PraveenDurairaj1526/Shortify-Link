@@ -7,6 +7,7 @@ import { v4 as uuid4 } from "uuid";
 import clsx from 'clsx';
 import { Loader } from '@/SvgIcons/getSvgIcons';
 import { useForm } from "react-hook-form";
+import { DB_COLLECTION } from '@/site-config';
 
 const ShortenerForm = ({ title, specialText, description }) => {
     const [loading, setLoading] = useState(false)
@@ -57,7 +58,7 @@ const ShortenerForm = ({ title, specialText, description }) => {
                 }
 
                 const q = query(
-                    collection(db, "manage_url"),
+                    collection(db, DB_COLLECTION),
                     where("id", "==", alias)
                 );
                 const snap = await getDocs(q);
@@ -72,7 +73,7 @@ const ShortenerForm = ({ title, specialText, description }) => {
                 }
             }
 
-            await addDoc(collection(db, "manage_url"), {
+            await addDoc(collection(db, DB_COLLECTION), {
                 id,
                 originalUrl: trimUrl,
                 shortUrl: `${window.location.origin}/${id}`,
