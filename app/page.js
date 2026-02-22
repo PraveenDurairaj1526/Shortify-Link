@@ -1,5 +1,6 @@
 
 import About from "@/components/About";
+import BlogSection from "@/components/BlogSection";
 import Faq from "@/components/Faq";
 import HelpingPlatform from "@/components/HelpingPlatform";
 import HowItWorks from "@/components/HowItWorks";
@@ -49,6 +50,7 @@ export default function Home() {
       <WhyChoose containerClass={'mt-10 sm:mt-20'} content={featuresData} title={'Why Shortify Link Is the Best Link Shortener'} />
       <Faq containerClass={'mt-10 sm:mt-20'} content={faqData} />
       <HelpingPlatform containerClass={'mt-10 sm:mt-20'} content={urlShortenerUseCases} />
+      <BlogSection/>
     </main>
   );
 }
