@@ -222,13 +222,13 @@ export const getSiteData = {
         ]
     },
     emailRemainderData: {
-        title: 'Email Remainder',
-        description: 'Receive an email alert once your link hits 50 clicks',
+        title: 'Email Reminder',
+        description: 'Alert at 500 clicks',
         icon: emailImage
     },
     whatsappRemainderData: {
         title: 'WhatsApp Reminder',
-        description: 'Get a WhatsApp notification when your link reaches 50 clicks.',
+        description: 'Alert at 1000 clicks',
         icon: whatsappImage
     },
 

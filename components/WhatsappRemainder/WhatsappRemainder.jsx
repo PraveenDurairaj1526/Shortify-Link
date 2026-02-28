@@ -52,23 +52,27 @@ const WhatsappRemainder = ({ id, whatsappToggle, whatsapp, staticData }) => {
 
     return (
         <>
-            <div className="p-5  bg-[#f0f8ff] rounded-md">
-                <div className='flex gap-3 items-center mb-2'>
-                    <Image src={staticData?.icon} width={30} height={30} />
-                    <div className='flex gap-3 items-center'>
-                        <label className="text-base font-medium text-text-secondary-light">{staticData?.title}</label>
-                        <Switch color="blue" checked={isOn} onChange={handleToggle} disabled={whatsappToggle || whatsapp} />
+            <div className="p-3 border border-gray-300 bg-white rounded-md shadow-sm">
+                <div className='flex justify-between gap-3'>
+                    <div className='flex gap-3 items-start'>
+                        <div className='bg-gray-100 rounded-md p-2'>
+                            <Image src={staticData?.icon} width={25} height={25} />
+                        </div>
+                        <div>
+                            <label className="text-sm font-medium  text-secondary-light">{staticData?.title}</label>
+                            <p className="text-gray-600 text-xs">{staticData?.description}</p>
+                        </div>
                     </div>
+                    <Switch color="blue" checked={isOn} onChange={handleToggle} disabled={whatsappToggle || whatsapp} />
                 </div>
-                <p className="text-gray-600 text-sm">{staticData?.description}</p>
                 {whatsapp && (
-                    <div className="mt-3 rounded-xl bg-gradient-to-r from-green-50 via-emerald-50 to-green-100 px-4 py-3">
-                        <p className="text-sm text-gray-700">You will receive a WhatsApp message on</p>
+                    <div className="mt-3 rounded-md bg-gray-200 px-3 py-3">
+                        <p className="text-xs text-gray-700">You will receive a WhatsApp message on</p>
                         <div className="mt-1 flex items-center gap-2 flex-wrap">
-                            <span className="text-sm font-semibold text-green-700 tracking-wider">
+                            <span className="text-xs font-semibold text-green-700 tracking-wider">
                                 ****{whatsapp.slice(-5)}
                             </span>
-                            <span className="text-xs rounded-full bg-green-200/60 px-2 py-0.5 text-green-800"> Active</span>
+                            <span className="text-xs rounded-full bg-green-100 text-green-600 px-2 py-0.5"> Active</span>
                         </div>
                     </div>
                 )}

@@ -62,32 +62,35 @@ export default function TrackClicksPage({ params }) {
 
 
     return (
-            <main className="flex-1 px-[15px] py-8 md:py-12  bg-[#F0F8FF] min-h-[600px]">
-                <div className="w-full max-w-[1000px] mx-auto flex flex-col gap-6">
-                    <h1 className='text-[24px] sm:text-[28px] font-semibold'>Track your clicks</h1>
-                    <div className="flex justify-between items-center gap-[18px] flex-wrap">
-                        <div>
-                            <div className=" w-full sm:w-[340px] p-[4px_4px_4px_18px] h-11 border border-gray-200 rounded-[30px] flex justify-between bg-white">
-                                <input
-                                    value={isSearchValue}
-                                    onChange={(e) => setSearchValue(e.target.value)}
-                                    className="flex-grow bg-white focus:outline-none focus:ring-0" placeholder="Enter short URL"
-                                />
-                                <button className="bg-[#066AE5] flex items-center justify-center shrink-0 rounded-full p-4 text-white cursor-pointer" onClick={handleSearch}><SearchIcon /></button>
-                            </div>
-                            <div><span className="font-semibold inline-block mt-2">Note: </span> To search, enter a valid short URL.<span className="font-semibold inline-block">Example: https://www.shortifylink.in/abc123</span></div>
+        <main className="flex-1 px-[15px] py-8 md:py-12  bg-gray-50 min-h-[600px]">
+            <div className="w-full max-w-[1200px] mx-auto flex flex-col gap-6">
+                <h1 className='text-[24px] sm:text-[28px] font-semibold'>Track your clicks</h1>
+                <div className="flex justify-between items-center gap-[18px] flex-wrap">
+                    <div>
+                        <div className=" w-full sm:w-[340px] p-[4px_4px_4px_18px] h-11 border border-gray-200 rounded-[30px] flex justify-between bg-white">
+                            <input
+                                value={isSearchValue}
+                                onChange={(e) => setSearchValue(e.target.value)}
+                                className="flex-grow bg-white focus:outline-none focus:ring-0" placeholder="Enter short URL"
+                            />
+                            <button className="bg-[#066AE5] flex items-center justify-center shrink-0 rounded-full p-4 text-white cursor-pointer" onClick={handleSearch}><SearchIcon /></button>
                         </div>
-                        <Link href={'/'} className="bg-[#066AE5] gap-2 flex items-center justify-center shrink-0 text-white font-medium p-[10px_18px] sm:p-[10px_24px] rounded-full transition-all duration-300">Create New short Url</Link>
+                        <div className="bg-gray-300 px-3 py-2 rounded-md mt-2">
+                            <p className="mb-1">Enter a valid short URL to view tracking details.</p>
+                            <p className="inline-block">Example: https://www.shortifylink.in/abc123</p>
+                        </div>
                     </div>
-                    {!isSearchPage && !noResults && <TrackUrl data={linkData} />}
-                    {noResults && !isSearchPage && <div className="text-center  bg-white border border-gray-200 rounded-[12px] p-[50px_15px] ">
-                        <h2 className="text-xl font-semibold mb-3">We can’t find that link 😔</h2>
-                        <p>
-                            It looks like the short URL you entered doesn’t exist.
-                            Maybe it was typed incorrectly or has been deleted.
-                        </p>
-                    </div>}
+                    <Link href={'/'} className="bg-[#066AE5] gap-2 flex items-center justify-center shrink-0 text-white font-medium p-[10px_18px] sm:p-[10px_24px] rounded-full transition-all duration-300">Create New short Url</Link>
                 </div>
-            </main>
+                {!isSearchPage && !noResults && <TrackUrl data={linkData} />}
+                {noResults && !isSearchPage && <div className="text-center  bg-white border border-gray-200 rounded-[12px] p-[50px_15px] ">
+                    <h2 className="text-xl font-semibold mb-3">We can’t find that link 😔</h2>
+                    <p>
+                        It looks like the short URL you entered doesn’t exist.
+                        Maybe it was typed incorrectly or has been deleted.
+                    </p>
+                </div>}
+            </div>
+        </main>
     );
 }
