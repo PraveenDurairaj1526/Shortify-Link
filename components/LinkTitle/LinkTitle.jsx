@@ -5,6 +5,7 @@ import { Button, Dialog, DialogBody, DialogFooter, DialogHeader, Input } from '@
 import { doc, updateDoc } from 'firebase/firestore';
 import { useLinkData } from '@/context/LinkDataProvider';
 import { db } from '@/lib/firebase.config';
+import { DB_COLLECTION } from '@/site-config';
 
 
 
@@ -22,7 +23,7 @@ const LinkTitle = ({ id }) => {
 
     const handleAddTitle = async (id, value) => {
         try {
-            const docRef = doc(db, "manage_url", id);
+            const docRef = doc(db, DB_COLLECTION, id);
 
             await updateDoc(docRef, {
                 linkTitle: value,
@@ -34,7 +35,7 @@ const LinkTitle = ({ id }) => {
     };
     return (
         <>
-            <button onClick={handleOpen} className="text-[#066AE5] bg-gray-100 gap-2 flex items-center justify-center shrink-0  font-medium  p-[6px_18px] rounded-full transition-all duration-300 text-[14px]">Add Title <span className='inline-block text-[20px] leading-[20px]'>+</span></button>
+            <button onClick={handleOpen} className="text-[#066AE5] bg-gray-100 gap-2 flex items-center justify-center shrink-0  font-medium  p-[6px_18px] rounded-md transition-all duration-300 text-[14px] shadow-sm">Add Title <span className='inline-block text-[20px] leading-[20px]'>+</span></button>
             <Dialog open={open} handler={handleOpen} size={'xs'}>
                 <DialogHeader className='bg-gray-200 rounded-t-xl text-[16px] p-3'>Add Title</DialogHeader>
                 <DialogBody>
