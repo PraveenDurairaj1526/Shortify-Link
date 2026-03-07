@@ -2,7 +2,9 @@ import React from 'react';
 import { FeatureIcon1, FeatureIcon2, FeatureIcon3, FeatureIcon4, FeatureIcon5 } from '@/SvgIcons/getSvgIcons';
 import emailImage from '/public/gmail.png';
 import whatsappImage from '/public/whatsapp.png';
-
+import linkedInBlogImage from '/public/linkedInBlogBannerImage.png';
+import amazonBlogImage from '/public/blogAmazonAffliateOgImage.png';
+import youTubeBlogImage from '/public/youTubeBlogBannerImage.png';
 export const getSiteData = {
     navData: [
         {
@@ -220,13 +222,13 @@ export const getSiteData = {
         ]
     },
     emailRemainderData: {
-        title: 'Email Remainder',
-        description: 'Receive an email alert once your link hits 50 clicks',
+        title: 'Email Reminder',
+        description: 'Alert at 500 clicks',
         icon: emailImage
     },
     whatsappRemainderData: {
         title: 'WhatsApp Reminder',
-        description: 'Get a WhatsApp notification when your link reaches 50 clicks.',
+        description: 'Alert at 1000 clicks',
         icon: whatsappImage
     },
 
@@ -261,41 +263,71 @@ export const getSiteData = {
         ]
     },
     amazonFaqData: {
-    title: 'Amazon Link Shortener – FAQ',
-    subTitle: 'Everything you need to know about shortening Amazon product links.',
-    faqQuestions: [
+        title: 'Amazon Link Shortener – FAQ',
+        subTitle: 'Everything you need to know about shortening Amazon product links.',
+        faqQuestions: [
+            {
+                question: "What is an Amazon link shortener?",
+                answer:
+                    "An Amazon link shortener is a tool that converts long Amazon product URLs into clean, compact, and shareable short links. It helps you create an Amazon shortened link that looks professional and is easier to share across social media, blogs, emails, and ads."
+            },
+            {
+                question: "How to shorten Amazon links?",
+                answer:
+                    "To shorten Amazon links, simply copy your Amazon product link, paste it into the Amazon link shortener, and click shorten. The tool instantly generates a short, trackable Amazon product link that you can share anywhere."
+            },
+            {
+                question: "Can I use this as an Amazon affiliate link shortener?",
+                answer:
+                    "Yes, this works perfectly as an Amazon affiliate link shortener. You can shorten your affiliate product links, track clicks, set reminders, and manage campaigns more efficiently while keeping your links clean and professional."
+            },
+            {
+                question: "Does it work with amzn.eu links?",
+                answer:
+                    "Absolutely. Our tool supports amzn.eu link shortener functionality, meaning you can shorten amzn.eu links as well as full Amazon URLs. Whether it’s amazon.com or amazon link shortener amzn.eu format, both work seamlessly."
+            },
+            {
+                question: "Can I make unlimited Amazon shortened links?",
+                answer:
+                    "Yes, you can create unlimited Amazon shortened links. Shorten as many product links as you need and track performance without restrictions."
+            },
+            {
+                question: "Why should I use an Amazon link shortener?",
+                answer:
+                    "Using an Amazon link shortener helps improve click-through rates, track engagement, and make your product links more shareable. It’s especially useful for affiliate marketers, influencers, and sellers who want better control over their Amazon product link performance."
+            }
+        ]
+    },
+
+    blogPosts: [
         {
-            question: "What is an Amazon link shortener?",
-            answer:
-                "An Amazon link shortener is a tool that converts long Amazon product URLs into clean, compact, and shareable short links. It helps you create an Amazon shortened link that looks professional and is easier to share across social media, blogs, emails, and ads."
+            id: 1,
+            image: linkedInBlogImage,
+            title: "Shorten LinkedIn URL to Boost Your Engagement",
+            description:
+                "Use our free LinkedIn URL shortener to create clean, professional, and trackable short links. Improve engagement, boost click-through rates, and monitor performance with advanced click tracking for all your LinkedIn posts and campaigns.",
+            readTime: "5 min read",
+            link: "/blog/linkedIn-url-shortener",
         },
         {
-            question: "How to shorten Amazon links?",
-            answer:
-                "To shorten Amazon links, simply copy your Amazon product link, paste it into the Amazon link shortener, and click shorten. The tool instantly generates a short, trackable Amazon product link that you can share anywhere."
+            id: 2,
+            image: amazonBlogImage,
+            title: "Amazon Link Shortener – Free Tool to Shorten Amazon Affiliate Links 2026",
+            description:
+                "Create clean, simple, and trackable Amazon short links in seconds. Learn how to shorten Amazon links using a fast, free tool to boost clicks, improve sharing, and make every short link URL more user-friendly",
+            readTime: "7 min read",
+            link: "/blog/amazon-link-shortener",
         },
         {
-            question: "Can I use this as an Amazon affiliate link shortener?",
-            answer:
-                "Yes, this works perfectly as an Amazon affiliate link shortener. You can shorten your affiliate product links, track clicks, set reminders, and manage campaigns more efficiently while keeping your links clean and professional."
+            id: 3,
+            image:youTubeBlogImage,
+            title: "How to Boost Your YouTube Shorts Views Using a Link Shortener",
+            description:
+                "Shorten YouTube links instantly with a free YouTube link shortener. Create clean, clickable, and trackable short URLs for YouTube videos, Shorts, and channels to boost engagement and improve sharing across all platforms.",
+            readTime: "4 min read",
+            link: "/blog/content-marketing-guide",
         },
-        {
-            question: "Does it work with amzn.eu links?",
-            answer:
-                "Absolutely. Our tool supports amzn.eu link shortener functionality, meaning you can shorten amzn.eu links as well as full Amazon URLs. Whether it’s amazon.com or amazon link shortener amzn.eu format, both work seamlessly."
-        },
-        {
-            question: "Can I make unlimited Amazon shortened links?",
-            answer:
-                "Yes, you can create unlimited Amazon shortened links. Shorten as many product links as you need and track performance without restrictions."
-        },
-        {
-            question: "Why should I use an Amazon link shortener?",
-            answer:
-                "Using an Amazon link shortener helps improve click-through rates, track engagement, and make your product links more shareable. It’s especially useful for affiliate marketers, influencers, and sellers who want better control over their Amazon product link performance."
-        }
     ]
-}
 
 }
 
