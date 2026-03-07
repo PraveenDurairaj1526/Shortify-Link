@@ -59,13 +59,13 @@ const WhatsappRemainder = ({ id, whatsappToggle, whatsapp, staticData }) => {
                 <div className='flex justify-between gap-3'>
                     <div className='flex gap-3 items-start'>
                         <div className='bg-gray-100 rounded-md p-2'>
-                            <Image src={staticData?.icon} width={25} height={25} alt='whatsapp'/>
+                            <Image src={staticData?.icon} width={25} height={25} alt='whatsapp' />
                         </div>
                         <div>
                             <label className="text-sm font-medium  text-secondary-light">{staticData?.title}</label>
                             <div className='flex flex-wrap gap-2 items-center'>
                                 <p className="text-gray-600 text-xs">Alert at {watch("whatsappRemainderLimit")} clicks</p>
-                                <Button size='sm' className="normal-case py-1 px-2" onClick={() => setOpen(true)}>Change limit</Button>
+                                {!whatsapp && <Button size='sm' className="normal-case py-1 px-2" onClick={() => setOpen(true)}>Change limit</Button>}
                             </div>
 
                         </div>

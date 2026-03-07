@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import {  Dialog, DialogHeader, DialogBody, DialogFooter, Button, Input, Select, Option, Textarea } from "@material-tailwind/react";
+import { Dialog, DialogHeader, DialogBody, DialogFooter, Button, Input, Select, Option, Textarea } from "@material-tailwind/react";
 import { useForm } from 'react-hook-form';
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { db } from '@/lib/firebase.config';
 
 const FeedbackCta = () => {
-    const { register, handleSubmit, formState: { errors },reset } = useForm();
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const [open, setOpen] = useState(false);
     const handleCloseModal = () => {
         setOpen(false);
@@ -51,18 +51,16 @@ const FeedbackCta = () => {
                     </p>
 
                     {/* Name - Required */}
-                    <Input
-                        {...register("name", { required: "Name is required" })}
-                        label="Name"
-                        placeholder="Enter your name"
-                        color="black"
-                        className="text-black"
-                    />
-                    {errors.name && (
-                        <p className="text-red-500 text-xs">{errors.name.message}</p>
-                    )}
-
-                    {/* Email - Optional */}
+                    <div>
+                        <Input
+                            {...register("name", { required: "Name is required" })}
+                            label="Name"
+                            placeholder="Enter your name"
+                            color="black"
+                            className="text-black"
+                        />
+                        {errors.name && (<p className="text-red-500 text-xs">{errors.name.message}</p>)}
+                    </div>
                     <Input
                         {...register("email")}
                         label="Email (Optional)"
@@ -70,24 +68,23 @@ const FeedbackCta = () => {
                         color="black"
                         className="text-black"
                     />
-
-                    {/* Message - Required */}
-                    <Textarea
-                        {...register("message", { required: "Message is required" })}
-                        placeholder="Write your message..."
-                        color="black"
-                           labelProps={{ className: "before:content-none after:content-none" }}
-                    />
-                    {errors.message && (
-                        <p className="text-red-500 text-xs">{errors.message.message}</p>
-                    )}
+                    <div>
+                        <Textarea
+                            {...register("message", { required: "Message is required" })}
+                            placeholder="Write your message..."
+                            color="black"
+                            labelProps={{ className: "before:content-none after:content-none" }}
+                        />
+                        {errors.message && (
+                            <p className="text-red-500 text-xs">{errors.message.message}</p>
+                        )}
+                    </div>
                 </DialogBody>
 
-                <DialogFooter>
+                <DialogFooter className='flex gap-2'>
                     <Button variant="text" onClick={handleCloseModal}>
                         Cancel
                     </Button>
-
                     <Button
                         variant="gradient"
                         color="black"

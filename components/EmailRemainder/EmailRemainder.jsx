@@ -64,7 +64,7 @@ const EmailRemainder = ({ id, emailToggle, email, staticData }) => {
                             <label className="text-sm font-medium  text-secondary-light">{staticData?.title}</label>
                             <div className='flex flex-wrap gap-2 items-center'>
                                 <p className="text-gray-600 text-xs">Alert at {watch("emailRemainderLimit")} clicks</p>
-                                <Button size='sm' className="normal-case py-1 px-2" onClick={() => setOpen(true)}>Change limit</Button>
+                              {!email &&  <Button size='sm' className="normal-case py-1 px-2" onClick={() => setOpen(true)}>Change limit</Button>}
                             </div>
                         </div>
                     </div>

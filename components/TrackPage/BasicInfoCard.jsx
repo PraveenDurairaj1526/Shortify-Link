@@ -4,7 +4,6 @@ import { CopyIcon, OpenWebsiteIcon } from '@/SvgIcons/getSvgIcons';
 import whatsappIcon from '/public/whatsappIcon.png';
 import linkedInIcon from '/public/linkedinIcon.png';
 import facebookIcon from '/public/facebookIcon.png';
-import editIcon from '/public/edit.png';
 import Image from 'next/image';
 import LinkTitle from '../LinkTitle/LinkTitle';
 
@@ -78,7 +77,7 @@ const BasicInfoCard = ({ linkData }) => {
                     <div>
                         <label className='text-gray-500 mb-2 text-sm font-medium inline-block'>Short link</label>
                         <div className='border border-gray-300 rounded-md bg-gray-50 flex gap-3 justify-between '>
-                            <a href={linkData?.shortUrl} target='_blank' className='py-2.5 px-2 text-sm text-blue-600 overflow-hidden'>{linkData?.shortUrl}</a>
+                            <a href={linkData?.shortUrl} target='_blank' className='py-2.5 px-2 text-sm text-blue-600 overflow-hidden break-all'>{linkData?.shortUrl}</a>
                             <button className='bg-white py-1 px-3 border-s border-gray-300 flex items-center justify-center flex-shrink-0 relative rounded-[inherit]' onClick={() => handleCopy(linkData?.shortUrl, "shortUrl")}><CopyIcon className='w-4 h-4' />
                                 {(copied?.shortUrl) && <span className='bg-black text-white py-1 px-3 rounded-3xl absolute bottom-[36px] text-xs'>{copied?.shortUrl ? "Copied" : "Copy"}</span>}
                             </button>
@@ -88,7 +87,7 @@ const BasicInfoCard = ({ linkData }) => {
                     <div>
                         <label className='text-gray-500 mb-2 text-sm font-medium inline-block'>Analytics link</label>
                         <div className='border border-gray-300 rounded-md bg-gray-50 flex gap-3 justify-between'>
-                            <a href={linkData?.trackingUrl} target='_blank' className='py-2.5 px-2 text-sm text-blue-600 overflow-hidden'>{linkData?.trackingUrl}</a>
+                            <a href={linkData?.trackingUrl} target='_blank' className='py-2.5 px-2 text-sm text-blue-600 overflow-hidden break-all'>{linkData?.trackingUrl}</a>
                             <button className='bg-white flex-shrink-0 py-1 px-3 border-s border-gray-300 flex items-center justify-center relative rounded-[inherit]' onClick={() => handleCopy(linkData?.trackingUrl, "trackingUrl")}>
                                 <CopyIcon className='w-4 h-4' />
                                 {(copied?.trackingUrl) && <span className='bg-black text-white py-1 px-3 rounded-3xl absolute bottom-[36px] text-xs'>{copied?.trackingUrl ? "Copied" : "Copy"}</span>}
@@ -99,7 +98,7 @@ const BasicInfoCard = ({ linkData }) => {
                 <div className='w-full max-w-full'>
                     <label className='text-gray-500 mb-2 text-sm font-medium inline-block'>Distinction link</label>
                     <div className='border border-gray-300 rounded-md bg-gray-50 flex gap-3 justify-between'>
-                        <a href={linkData?.originalUrl} target='_blank' className='py-2.5 px-2 text-sm text-blue-600 truncate min-w-0'>{linkData?.originalUrl}</a>
+                        <a href={linkData?.originalUrl} target='_blank' className='py-2.5 px-2 text-sm text-blue-600 truncate min-w-0 break-all'>{linkData?.originalUrl}</a>
                         <a href={linkData?.originalUrl} target='_blank' className='bg-white flex-shrink-0 py-1 px-3 border-s border-gray-300 flex items-center justify-center rounded-[inherit]'><OpenWebsiteIcon className='w-4 h-4 text-blue-600' /></a>
                     </div>
                 </div>
