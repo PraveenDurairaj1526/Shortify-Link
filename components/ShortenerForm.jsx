@@ -29,7 +29,6 @@ const ShortenerForm = ({ title, specialText, description }) => {
     const linkType = watch("linkType");
 
     const onSubmit = async (data) => {
-        console.log(data, 'https://www.shortifylink.in/https://www.shortifylink.in/')
         const trimUrl = data.url.trim();
 
         if (!trimUrl.startsWith("http://") && !trimUrl.startsWith("https://")) {

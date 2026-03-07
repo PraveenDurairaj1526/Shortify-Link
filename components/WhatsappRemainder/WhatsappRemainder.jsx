@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { useForm } from "react-hook-form";
-import { Switch, Dialog, DialogHeader, DialogBody, DialogFooter, Button, Input } from "@material-tailwind/react";
+import { Controller, useForm } from "react-hook-form";
+import { Switch, Dialog, DialogHeader, DialogBody, DialogFooter, Button, Input, Select, Option } from "@material-tailwind/react";
 import { doc, updateDoc } from 'firebase/firestore';
 import { useLinkData } from '@/context/LinkDataProvider';
 import { db } from '@/lib/firebase.config';
 import { DB_COLLECTION } from '@/site-config';
 import Image from 'next/image';
 
+const remainderCountSelectOption = [100, 500, 1000, 10000]
+
 const WhatsappRemainder = ({ id, whatsappToggle, whatsapp, staticData }) => {
     const { updateLinkData } = useLinkData();
     const [open, setOpen] = useState(false);
     const [isOn, setIsOn] = useState(false);
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, control, watch, formState: { errors } } = useForm({ defaultValues: { whatsappRemainderLimit: 100 } });
 
     useEffect(() => {
         setIsOn(whatsappToggle)
@@ -29,7 +31,7 @@ const WhatsappRemainder = ({ id, whatsappToggle, whatsapp, staticData }) => {
     };
 
     const onSubmit = (data) => {
-        handleWhatsappRemainder(id, data?.whatsapp)
+        handleWhatsappRemainder(id, data)
         handleCloseModal()
     };
 
@@ -38,10 +40,11 @@ const WhatsappRemainder = ({ id, whatsappToggle, whatsapp, staticData }) => {
             const docRef = doc(db, DB_COLLECTION, id);
 
             await updateDoc(docRef, {
-                whatsapp: value,
-                whatsappRemainder: true
+                whatsapp: value?.whatsapp,
+                whatsappRemainder: true,
+                whatsappRemainderCount: value?.whatsappRemainderLimit
             });
-            updateLinkData({ whatsapp: value });
+            updateLinkData({ whatsapp: value?.whatsapp });
             setIsOn(true);
             setOpen(false);
 
@@ -56,11 +59,15 @@ const WhatsappRemainder = ({ id, whatsappToggle, whatsapp, staticData }) => {
                 <div className='flex justify-between gap-3'>
                     <div className='flex gap-3 items-start'>
                         <div className='bg-gray-100 rounded-md p-2'>
-                            <Image src={staticData?.icon} width={25} height={25} />
+                            <Image src={staticData?.icon} width={25} height={25} alt='whatsapp'/>
                         </div>
                         <div>
                             <label className="text-sm font-medium  text-secondary-light">{staticData?.title}</label>
-                            <p className="text-gray-600 text-xs">{staticData?.description}</p>
+                            <div className='flex flex-wrap gap-2 items-center'>
+                                <p className="text-gray-600 text-xs">Alert at {watch("whatsappRemainderLimit")} clicks</p>
+                                <Button size='sm' className="normal-case py-1 px-2" onClick={() => setOpen(true)}>Change limit</Button>
+                            </div>
+
                         </div>
                     </div>
                     <Switch color="blue" checked={isOn} onChange={handleToggle} disabled={whatsappToggle || whatsapp} />
@@ -70,7 +77,7 @@ const WhatsappRemainder = ({ id, whatsappToggle, whatsapp, staticData }) => {
                         <p className="text-xs text-gray-700">You will receive a WhatsApp message on</p>
                         <div className="mt-1 flex items-center gap-2 flex-wrap">
                             <span className="text-xs font-semibold text-green-700 tracking-wider">
-                                ****{whatsapp.slice(-5)}
+                                ****{whatsapp?.slice(-5)}
                             </span>
                             <span className="text-xs rounded-full bg-green-100 text-green-600 px-2 py-0.5"> Active</span>
                         </div>
@@ -81,8 +88,32 @@ const WhatsappRemainder = ({ id, whatsappToggle, whatsapp, staticData }) => {
             <Dialog open={open} handler={handleCloseModal} size='xs'>
                 <DialogHeader className='bg-gray-200 rounded-t-xl text-[16px] p-3'>Whatsapp Reminder </DialogHeader>
                 <DialogBody>
-                    <p className='text-black mb-3'>When your link reaches 50 clicks, a WhatsApp notification will be sent to you automatically.</p>
+                    <p className='text-black mb-3'>When your link reaches {watch("whatsappRemainderLimit")} clicks, a WhatsApp notification will be sent to you automatically.</p>
                     <Input {...register("whatsapp", { required: "required" })} label="whatsapp No" value={whatsapp} placeholder="Enter Your whatsapp" color='black' />
+                    <div className="mt-4">
+                        <Controller
+                            name="whatsappRemainderLimit"
+                            control={control}
+                            render={({ field }) => (
+                                <Select
+                                    label="Reminder Click Count"
+                                    color="black"
+                                    className='text-black'
+                                    labelProps={{
+                                        className: "text-black",
+                                    }}
+                                    value={String(field.value)}
+                                    onChange={(val) => field.onChange(val)}
+                                >
+                                    {remainderCountSelectOption.map((item) => (
+                                        <Option key={item} value={String(item)} color='black' className='text-black'>
+                                            {item} Clicks
+                                        </Option>
+                                    ))}
+                                </Select>
+                            )}
+                        />
+                    </div>
                 </DialogBody>
                 <DialogFooter>
                     <Button variant="text" onClick={handleCloseModal}>Close</Button>

@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { useForm } from "react-hook-form";
-import { Switch, Dialog, DialogHeader, DialogBody, DialogFooter, Button, Input } from "@material-tailwind/react";
+import { Controller, useForm } from "react-hook-form";
+import { Switch, Dialog, DialogHeader, DialogBody, DialogFooter, Button, Input, Select, Option } from "@material-tailwind/react";
 import { doc, updateDoc } from 'firebase/firestore';
 import { useLinkData } from '@/context/LinkDataProvider';
 import { DB_COLLECTION } from '@/site-config';
 import { db } from '@/lib/firebase.config';
 import Image from 'next/image';
 
+const remainderCountSelectOption = [100, 500, 1000, 10000]
 const EmailRemainder = ({ id, emailToggle, email, staticData }) => {
     const { updateLinkData } = useLinkData();
     const [open, setOpen] = useState(false);
     const [isOn, setIsOn] = useState(false);
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, control, watch, formState: { errors } } = useForm({ defaultValues: { emailRemainderLimit: 100 } });
 
     useEffect(() => {
         setIsOn(emailToggle)
@@ -29,7 +30,7 @@ const EmailRemainder = ({ id, emailToggle, email, staticData }) => {
     };
 
     const onSubmit = (data) => {
-        handleEmailRemainder(id, data?.email)
+        handleEmailRemainder(id, data)
         handleCloseModal()
     };
 
@@ -38,10 +39,11 @@ const EmailRemainder = ({ id, emailToggle, email, staticData }) => {
             const docRef = doc(db, DB_COLLECTION, id);
 
             await updateDoc(docRef, {
-                email: value,
-                emailRemainder: true
+                email: value.email,
+                emailRemainder: true,
+                emailRemainderCount: value?.emailRemainderLimit
             });
-            updateLinkData({ email: value });
+            updateLinkData({ email: value.email });
             setIsOn(true);
             setOpen(false);
 
@@ -56,11 +58,14 @@ const EmailRemainder = ({ id, emailToggle, email, staticData }) => {
                 <div className='flex justify-between gap-3'>
                     <div className='flex gap-3 items-start'>
                         <div className='bg-gray-100 rounded-md p-2'>
-                        <Image src={staticData?.icon} width={20} height={20} />
+                            <Image src={staticData?.icon} width={20} height={20} alt='email' />
                         </div>
                         <div>
                             <label className="text-sm font-medium  text-secondary-light">{staticData?.title}</label>
-                            <p className="text-gray-600 text-xs">{staticData?.description}</p>
+                            <div className='flex flex-wrap gap-2 items-center'>
+                                <p className="text-gray-600 text-xs">Alert at {watch("emailRemainderLimit")} clicks</p>
+                                <Button size='sm' className="normal-case py-1 px-2" onClick={() => setOpen(true)}>Change limit</Button>
+                            </div>
                         </div>
                     </div>
                     <Switch color="blue" checked={isOn} onChange={handleToggle} disabled={emailToggle || email} />
@@ -87,8 +92,32 @@ const EmailRemainder = ({ id, emailToggle, email, staticData }) => {
             <Dialog open={open} handler={handleCloseModal} size='xs'>
                 <DialogHeader className='bg-gray-200 rounded-t-xl text-[16px] p-3'>Email Reminder </DialogHeader>
                 <DialogBody>
-                    <p className='text-black mb-3'>If your link reaches 50 clicks, we will send you an email reminder.</p>
+                    <p className='text-black mb-3'>If your link reaches {watch("emailRemainderLimit")} clicks, we will send you an email reminder.</p>
                     <Input {...register("email", { required: "required" })} label="Email" value={email} placeholder="Enter Your Email" color='black' />
+                    <div className="mt-4">
+                        <Controller
+                            name="emailRemainderLimit"
+                            control={control}
+                            render={({ field }) => (
+                                <Select
+                                    label="Reminder Click Count"
+                                    color="black"
+                                    className='text-black'
+                                    labelProps={{
+                                        className: "text-black",
+                                    }}
+                                    value={String(field.value)}
+                                    onChange={(val) => field.onChange(val)}
+                                >
+                                    {remainderCountSelectOption.map((item) => (
+                                        <Option key={item} value={String(item)} color='black' className='text-black'>
+                                            {item} Clicks
+                                        </Option>
+                                    ))}
+                                </Select>
+                            )}
+                        />
+                    </div>
                 </DialogBody>
                 <DialogFooter>
                     <Button variant="text" onClick={handleCloseModal}>Close</Button>

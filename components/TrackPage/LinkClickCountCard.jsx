@@ -11,9 +11,7 @@ const LinkClickCountCard = ({ linkData }) => {
         : null;
     return (
         <div className='border border-gray-300 bg-white rounded-md'>
-            <div
-             className='flex gap-2 items-center p-5 border-b border-gray-300 '
-             >
+            <div className='flex gap-2 items-center p-5 border-b border-gray-300'>
                 <h3 className='text-md font-semibold'>Performance</h3>
             </div>
             <div className="p-5">

@@ -9,7 +9,7 @@ import FeedbackCta from './FeedbackCta';
 const TrackUrl = ({ data }) => {
 
     return (
-            <div className='grid grid-cols-[2fr_1fr] gap-6 items-start'>
+            <div className='grid grid-cols-1 lg:grid-cols-[minmax(0,2fr)_1fr] gap-6 items-start'>
                 <div>
                     <BasicInfoCard linkData={data} />
                     <FeedbackCta />

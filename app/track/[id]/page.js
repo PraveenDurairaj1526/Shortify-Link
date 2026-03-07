@@ -75,10 +75,6 @@ export default function TrackClicksPage({ params }) {
                             />
                             <button className="bg-[#066AE5] flex items-center justify-center shrink-0 rounded-full p-4 text-white cursor-pointer" onClick={handleSearch}><SearchIcon /></button>
                         </div>
-                        <div className="bg-gray-300 px-3 py-2 rounded-md mt-2">
-                            <p className="mb-1">Enter a valid short URL to view tracking details.</p>
-                            <p className="inline-block">Example: https://www.shortifylink.in/abc123</p>
-                        </div>
                     </div>
                     <Link href={'/'} className="bg-[#066AE5] gap-2 flex items-center justify-center shrink-0 text-white font-medium p-[10px_18px] sm:p-[10px_24px] rounded-full transition-all duration-300">Create New short Url</Link>
                 </div>

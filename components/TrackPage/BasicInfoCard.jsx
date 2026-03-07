@@ -65,7 +65,7 @@ const BasicInfoCard = ({ linkData }) => {
         },
     ]
     return (
-        <div className='border border-gray-300 bg-white rounded-md max-w-[800px] mb-6'>
+        <div className='border border-gray-300 bg-white rounded-md mb-6'>
             <div className='flex gap-6 items-center justify-between p-5 border-b border-gray-300'>
                 <div className='flex gap-2 items-center justify-between'>
                     <span className='text-md font-medium'>{linkData?.linkTitle ? linkData?.linkTitle : 'Title' }</span>
@@ -74,12 +74,12 @@ const BasicInfoCard = ({ linkData }) => {
                {!linkData?.linkTitle && <LinkTitle id={linkData?.fb_id} loading={linkData?.linkTitle} />}
             </div>
             <div className='p-5 border-b border-gray-300'>
-                <div className='grid sm:grid-cols-2 gap-5 mb-5'>
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-5 mb-5'>
                     <div>
                         <label className='text-gray-500 mb-2 text-sm font-medium inline-block'>Short link</label>
                         <div className='border border-gray-300 rounded-md bg-gray-50 flex gap-3 justify-between '>
-                            <a href={linkData?.shortUrl} target='_blank' className='py-2.5 px-2 text-sm text-blue-600'>{linkData?.shortUrl}</a>
-                            <button className='bg-white py-1 px-3 border-s border-gray-300 flex items-center justify-center flex-shrink-0 relative' onClick={() => handleCopy(linkData?.shortUrl, "shortUrl")}><CopyIcon className='w-4 h-4' />
+                            <a href={linkData?.shortUrl} target='_blank' className='py-2.5 px-2 text-sm text-blue-600 overflow-hidden'>{linkData?.shortUrl}</a>
+                            <button className='bg-white py-1 px-3 border-s border-gray-300 flex items-center justify-center flex-shrink-0 relative rounded-[inherit]' onClick={() => handleCopy(linkData?.shortUrl, "shortUrl")}><CopyIcon className='w-4 h-4' />
                                 {(copied?.shortUrl) && <span className='bg-black text-white py-1 px-3 rounded-3xl absolute bottom-[36px] text-xs'>{copied?.shortUrl ? "Copied" : "Copy"}</span>}
                             </button>
                         </div>
@@ -88,29 +88,29 @@ const BasicInfoCard = ({ linkData }) => {
                     <div>
                         <label className='text-gray-500 mb-2 text-sm font-medium inline-block'>Analytics link</label>
                         <div className='border border-gray-300 rounded-md bg-gray-50 flex gap-3 justify-between'>
-                            <a href={linkData?.trackingUrl} target='_blank' className='py-2.5 px-2 text-sm text-blue-600'>{linkData?.trackingUrl}</a>
-                            <button className='bg-white flex-shrink-0 py-1 px-3 border-s border-gray-300 flex items-center justify-center relative' onClick={() => handleCopy(linkData?.trackingUrl, "trackingUrl")}>
+                            <a href={linkData?.trackingUrl} target='_blank' className='py-2.5 px-2 text-sm text-blue-600 overflow-hidden'>{linkData?.trackingUrl}</a>
+                            <button className='bg-white flex-shrink-0 py-1 px-3 border-s border-gray-300 flex items-center justify-center relative rounded-[inherit]' onClick={() => handleCopy(linkData?.trackingUrl, "trackingUrl")}>
                                 <CopyIcon className='w-4 h-4' />
                                 {(copied?.trackingUrl) && <span className='bg-black text-white py-1 px-3 rounded-3xl absolute bottom-[36px] text-xs'>{copied?.trackingUrl ? "Copied" : "Copy"}</span>}
                             </button>
                         </div>
                     </div>
                 </div>
-                <div>
+                <div className='w-full max-w-full'>
                     <label className='text-gray-500 mb-2 text-sm font-medium inline-block'>Distinction link</label>
-                    <div className='border border-gray-300 rounded-md bg-gray-50 flex gap-3 justify-between overflow-hidden'>
-                        <a href='' target='_blank' className='py-2.5 px-2 text-sm text-blue-600'>https://www.shortifylink.in/abc123</a>
-                        <div className='bg-white flex-shrink-0 py-1 px-3 border-s border-gray-300 flex items-center justify-center'><OpenWebsiteIcon className='w-4 h-4 text-blue-600' /></div>
+                    <div className='border border-gray-300 rounded-md bg-gray-50 flex gap-3 justify-between'>
+                        <a href={linkData?.originalUrl} target='_blank' className='py-2.5 px-2 text-sm text-blue-600 truncate min-w-0'>{linkData?.originalUrl}</a>
+                        <a href={linkData?.originalUrl} target='_blank' className='bg-white flex-shrink-0 py-1 px-3 border-s border-gray-300 flex items-center justify-center rounded-[inherit]'><OpenWebsiteIcon className='w-4 h-4 text-blue-600' /></a>
                     </div>
                 </div>
             </div>
             <div className='p-5'>
                 <label className='text-gray-500 mb-4 text-sm font-medium inline-block'>Share your link</label>
                 <div className='flex gap-3 flex-wrap'>
-                    {linkShareData?.map((item) => {
+                    {linkShareData?.map((item,key) => {
                         return (
-                            <button className='px-3 py-2 border border-gray-300 bg-white rounded-lg flex gap-2 items-center justify-center text-sm cursor-pointer hover:shadow-md' onClick={()=>{item?.handleShare(linkData?.shortUrl)}}>
-                                <Image width={20} height={20} src={item?.icon} />
+                            <button key={key} className='px-3 py-2 border border-gray-300 bg-white rounded-lg flex gap-2 items-center justify-center text-sm cursor-pointer hover:shadow-md' onClick={()=>{item?.handleShare(linkData?.shortUrl)}}>
+                                <Image width={20} height={20} src={item?.icon} alt='share option'/>
                                 <span>{item?.label}</span>
                             </button>
                         )

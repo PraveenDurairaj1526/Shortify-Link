@@ -1,1 +1,1 @@
-export const DB_COLLECTION = 'manage__test_url'
+export const DB_COLLECTION = 'manage_url'
